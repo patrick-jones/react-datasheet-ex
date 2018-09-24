@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DragDropRowRenderer matches snapshot 1`] = `
+<DragDropContext(TestContainer)>
+  <TestContainer>
+    <table>
+      <tbody>
+        <DragDropRowRenderer
+          actionContentRenderer={[Function]}
+          cells={
+            Array [
+              Object {
+                "value": "Row 0",
+              },
+            ]
+          }
+          onRowDropped={[MockFunction]}
+          row={0}
+        >
+          <DropTarget(DragSource(DragDropRow))
+            onRowDropped={[MockFunction]}
+            row={0}
+          >
+            <DragSource(DragDropRow)
+              connectDropTarget={[Function]}
+              isDropOver={false}
+              onRowDropped={[MockFunction]}
+              row={0}
+            >
+              <DragDropRow
+                connectDragPreview={[Function]}
+                connectDragSource={[Function]}
+                connectDropTarget={[Function]}
+                isDropOver={false}
+                onRowDropped={[MockFunction]}
+                row={0}
+              >
+                <tr
+                  className="rdr-sheet-renderer__row "
+                  key="$row-0"
+                >
+                  <td
+                    className="cell read-only rdr-sheet-renderer__action-cell rdr-sheet-renderer__action-cell--drag-source"
+                    key="$$actionCell"
+                  >
+                    <DefaultActionContentRenderer
+                      row={0}
+                    />
+                  </td>
+                  <td>
+                    Row 0
+                  </td>
+                </tr>
+              </DragDropRow>
+            </DragSource(DragDropRow)>
+          </DropTarget(DragSource(DragDropRow))>
+        </DragDropRowRenderer>
+        <DragDropRowRenderer
+          actionContentRenderer={[Function]}
+          cells={
+            Array [
+              Object {
+                "value": "Row 1",
+              },
+            ]
+          }
+          onRowDropped={[MockFunction]}
+          row={1}
+        >
+          <DropTarget(DragSource(DragDropRow))
+            onRowDropped={[MockFunction]}
+            row={1}
+          >
+            <DragSource(DragDropRow)
+              connectDropTarget={[Function]}
+              isDropOver={false}
+              onRowDropped={[MockFunction]}
+              row={1}
+            >
+              <DragDropRow
+                connectDragPreview={[Function]}
+                connectDragSource={[Function]}
+                connectDropTarget={[Function]}
+                isDropOver={false}
+                onRowDropped={[MockFunction]}
+                row={1}
+              >
+                <tr
+                  className="rdr-sheet-renderer__row "
+                  key="$row-1"
+                >
+                  <td
+                    className="cell read-only rdr-sheet-renderer__action-cell rdr-sheet-renderer__action-cell--drag-source"
+                    key="$$actionCell"
+                  >
+                    <DefaultActionContentRenderer
+                      row={1}
+                    />
+                  </td>
+                  <td>
+                    Row 1
+                  </td>
+                </tr>
+              </DragDropRow>
+            </DragSource(DragDropRow)>
+          </DropTarget(DragSource(DragDropRow))>
+        </DragDropRowRenderer>
+      </tbody>
+    </table>
+  </TestContainer>
+</DragDropContext(TestContainer)>
+`;

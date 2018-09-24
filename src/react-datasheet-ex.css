@@ -1,0 +1,14 @@
+
+.rdr-sheet-renderer__action-cell {
+  width: 1rem;
+}
+
+.data-grid-container .data-grid .cell.read-only.rdr-sheet-renderer__header-cell--drop-target,
+.data-grid-container .data-grid .rdr-sheet-renderer__row--drop-target {
+  background-color: rgba(111, 134, 252, 0.5);
+}
+
+.data-grid-container .data-grid .cell.read-only.rdr-sheet-renderer__header-cell--drag-source,
+.data-grid-container .data-grid .cell.read-only.rdr-sheet-renderer__action-cell--drag-source {
+  cursor: grab;
+}

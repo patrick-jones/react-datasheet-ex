@@ -1,11 +1,17 @@
+# build
+dist
+*.d.ts
+*.css
+
+# dependencies
 node_modules
-build
-test
-src/**.js
+
+# ide files
 .idea/*
 
+# coverage
 coverage
-.nyc_output
-*.log
 
+# misc
+*.log
 yarn.lock

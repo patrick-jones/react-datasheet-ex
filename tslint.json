@@ -1,34 +1,35 @@
 {
-  "extends": ["tslint:latest", "tslint-config-prettier", "tslint-immutable"],
+  "extends": ["tslint-config-airbnb", "tslint-react"],
   "rules": {
+    "function-name": false,
+    "import-name": false,
     "interface-name": [true, "never-prefix"],
-    // TODO: allow devDependencies only in **/*.spec.ts files:
-    // waiting on https://github.com/palantir/tslint/pull/3708
-    "no-implicit-dependencies": [true, "dev"],
-
-    /* tslint-immutable rules */
-    // Recommended built-in rules
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "no-consecutive-blank-lines": [true, 2],
     "no-var-keyword": true,
     "no-parameter-reassignment": true,
-    "typedef": [true, "call-signature"],
+    "no-trailing-whitespace": [true, "ignore-blank-lines"],
 
-    // Immutability rules
-    "readonly-keyword": true,
-    "readonly-array": true,
-    "no-let": true,
-    "no-object-mutation": true,
-    "no-delete": true,
-    "no-method-signature": true,
-
-    // Functional style rules
-    "no-this": true,
-    "no-class": true,
-    "no-mixed-interface": true,
-    "no-expression-statement": [
+    "object-curly-spacing": false,
+    "object-shorthand-properties-first": false,
+    "quotemark": [true, "single", "avoid-escape"],
+    "ter-arrow-parens": [true, "as-needed"],
+    "trailing-comma": [
       true,
-      { "ignore-prefix": ["console.", "process.exit"] }
+      {
+        "multiline": {
+          "objects": "always",
+          "arrays": "always",
+          "functions": "never"
+        },
+        "singleline": {
+          "objects": "never",
+          "arrays": "never",
+          "functions": "never"
+        }
+      }
     ],
-    "no-if-statement": true
-    /* end tslint-immutable rules */
+    "variable-name": false
   }
 }

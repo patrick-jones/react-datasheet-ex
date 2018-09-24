@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowRenderer basic rendering Should render 1`] = `
+<table>
+  <tbody>
+    <RowRenderer
+      actionContentRenderer={[Function]}
+      cells={
+        Array [
+          Object {
+            "value": "cell",
+          },
+        ]
+      }
+      row={0}
+    >
+      <tr
+        key="$row-0"
+      >
+        <td
+          className="cell read-only rdr-sheet-renderer__action-cell"
+          key="$$actionCell"
+        >
+          <DefaultActionContentRenderer
+            row={0}
+          />
+        </td>
+        <td
+          className="cell"
+        >
+          cell
+        </td>
+      </tr>
+    </RowRenderer>
+  </tbody>
+</table>
+`;

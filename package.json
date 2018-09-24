@@ -1,38 +1,34 @@
 {
   "name": "react-datasheet-renderers",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Custom renderers for react-datasheet",
-  "main": "build/main/index.js",
-  "typings": "build/main/index.d.ts",
-  "module": "build/module/index.js",
-  "repository": "https://github.com/patrick-jones/react-datasheet-renderers",
+  "author": "Patrick Jones <pjnola@gmail.com>",
+  "main": "dist/main/index.js",
+  "module": "dist/lib/index.js",
+  "typings": "dist/types/index.d.ts",
+  "repository": "https://github.com/patrick-jones/react-datasheet-renderers.git",
   "license": "MIT",
   "keywords": [],
   "scripts": {
     "info": "npm-scripts-info",
-    "build": "run-s clean && run-p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
-    "fix": "run-s fix:*",
-    "fix:prettier": "prettier \"src/**/*.ts\" --write",
-    "fix:tslint": "tslint --fix --project .",
-    "test": "run-s build test:*",
-    "test:lint": "tslint --project . && prettier \"src/**/*.ts\" --list-different",
-    "test:unit": "nyc --silent ava",
-    "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
-    "cov": "run-s build test:unit cov:html && opn coverage/index.html",
-    "cov:html": "nyc report --reporter=html",
-    "cov:send": "nyc report --reporter=lcov > coverage.lcov && codecov",
-    "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
-    "doc": "run-s doc:html && opn build/docs/index.html",
-    "doc:html": "typedoc src/ --target ES6 --mode file --out build/docs",
-    "doc:json": "typedoc src/ --target ES6 --mode file --json build/docs/typedoc.json",
-    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
-    "version": "standard-version",
-    "reset": "git clean -dfx && git reset --hard && npm i",
-    "clean": "trash build test",
-    "all": "run-s reset test cov:check doc:html",
-    "prepare-release": "run-s all version doc:publish"
+    "lint": "tslint --project .",
+    "fix": "tslint --fix --project .",
+    "clean": "rimraf dist drag-drop ./*.css",
+    "build": "run-s clean lint && run-p build:cjs build:es && run-s build:css build:typedefs",
+    "build:cjs": "tsc -p tsconfig.commonjs.json",
+    "build:es": "tsc -p tsconfig.module.json",
+    "build:typedefs": "tsc --outDir ./dist/types --emitDeclarationOnly",
+    "build:css": "cp src/react-datasheet-ex.css ./",
+    "test": "run-s build && jest --coverage",
+    "watch": "jest --watch --verbose",
+    "coverage": "codecov",
+    "start": "start-storybook -p 3000 -c .storybook",
+    "docs": "build-storybook -c .storybook -o dist/docs",
+    "docs:publish": "run-s docs && gh-pages -m \"[ci skip] Updates\" -d dist/docs",
+    "prepare-release": "run-s test docs docs:publish",
+    "prepare": "run-s test docs",
+    "prepublishOnly": "run-s test docs",
+    "postpublish": "run-s clean"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
@@ -40,54 +36,104 @@
     "fix": "Try to automatically fix any linting problems",
     "test": "Lint and unit test the project",
     "watch": "Watch and rebuild the project on save, then rerun relevant tests",
-    "cov": "Rebuild, run tests, then create and open the coverage report",
-    "doc": "Generate HTML API documentation and open it in a browser",
-    "doc:json": "Generate API documentation in typedoc JSON format",
-    "version": "Bump package.json version, update CHANGELOG.md, tag release",
-    "reset": "Delete all untracked files and reset the repo to the last commit",
+    "docs": "Generate HTML API documentation and open it in a browser",
+    "all": "Clean, lint, build, test, and build docs",
     "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
   },
   "engines": {
     "node": ">=8.9"
   },
   "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
+    "react-dom": "^16.0.1",
+    "react-datasheet": "^1.3.8"
+  },
   "devDependencies": {
-    "ava": "1.0.0-beta.7",
-    "codecov": "^3.0.2",
-    "cz-conventional-changelog": "^2.1.0",
-    "gh-pages": "^1.2.0",
+    "@dump247/storybook-state": "^1.5.0",
+    "@storybook/addon-knobs": "^3.4.11",
+    "@storybook/addon-options": "^3.4.11",
+    "@storybook/react": "^3.4.11",
+    "@types/enzyme": "^3.1.14",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/enzyme-to-json": "^1.5.2",
+    "@types/jest": "^23.3.2",
+    "@types/memoize-one": "^3.1.1",
+    "@types/node": "^10.11.0",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "@types/storybook__addon-actions": "^3.4.1",
+    "@types/storybook__addon-knobs": "^3.4.1",
+    "@types/storybook__addon-options": "^3.2.2",
+    "@types/storybook__react": "^3.0.9",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "=23.6.0",
+    "codecov": "^3.1.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "enzyme-to-json": "^3.3.4",
+    "gh-pages": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "jest": "=23.6.0",
+    "markdown-loader": "^4.0.0",
     "npm-run-all": "^4.1.3",
-    "nyc": "^12.0.2",
     "opn-cli": "^3.1.0",
-    "prettier": "^1.13.4",
+    "react": "^16.5.2",
+    "react-datasheet": "^1.3.9",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
+    "react-dnd-test-backend": "^5.0.1",
+    "react-dom": "^16.5.2",
+    "rimraf": "^2.6.2",
     "standard-version": "^4.4.0",
-    "trash-cli": "^1.4.0",
+    "storybook-readme": "^4.0.0-beta1",
+    "ts-jest": "=23.10.1",
+    "ts-loader": "^3.5.0",
     "tslint": "^5.10.0",
-    "tslint-config-prettier": "^1.13.0",
-    "tslint-immutable": "^4.5.4",
-    "typedoc": "^0.12.0",
-    "typescript": "^3.0.1"
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.0.3"
   },
-  "ava": {
-    "failFast": true,
-    "files": [
-      "build/main/**/*.spec.js"
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.test.json"
+      }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setup-enzyme.ts",
+    "roots": [
+      "<rootDir>/src"
     ],
-    "sources": [
-      "build/main/**/*.js"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
+    "transform": {
+      "^.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/",
+      "src/index.ts",
+      "src/setup-enzyme.ts",
+      "src/stories/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
     }
-  },
-  "prettier": {
-    "singleQuote": true
-  },
-  "nyc": {
-    "exclude": [
-      "**/*.spec.js"
-    ]
   }
 }
