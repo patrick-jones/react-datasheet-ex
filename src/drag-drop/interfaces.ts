@@ -1,6 +1,11 @@
 import RDS from 'react-datasheet';
 import {ConnectDragPreview, ConnectDragSource, ConnectDropTarget} from 'react-dnd';
-import {ColumnHeader, HeaderRendererProps, RowRendererProps} from '../interfaces';
+import {
+  ActionRendererProps,
+  ColumnHeader,
+  HeaderRendererProps,
+  RowRendererProps,
+} from '../interfaces';
 
 /**
  * Properties that must be provided to a drag and drop enabled row
@@ -48,9 +53,10 @@ export interface InjectedDragDropProps extends InjectedDragSourceProps, Injected
  * Extends `ReactDatasheet.RowRendererProps` to include
  * drag and drop properties
  */
-export interface DragDropRowRendererProps<CellType, V = string>
-  extends RowRendererProps<CellType, V>,
-    DragDropRowProps<CellType, V> {}
+export interface DragDropRowRendererProps<
+  CellType extends RDS.Cell<CellType, V>, V = string,
+  ARP extends ActionRendererProps<CellType, V> = ActionRendererProps<CellType, V>,
+> extends RowRendererProps<CellType, V, ARP>, DragDropRowProps<CellType, V> {}
 
 /**
  * Extends `HeaderRendererProps` to include drag and drop properties.

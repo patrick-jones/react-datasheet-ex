@@ -2,28 +2,29 @@ import React from 'react';
 import {mount} from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-import RowRenderer from './RowRenderer';
+import {ACTION_CELL} from './ClassNames';
+import Row from './Row';
 import {ExampleCellType} from './stories/store/interfaces';
 
 const cells: ExampleCellType[] = [
   {value: 'cell'},
 ];
 
-describe('RowRenderer basic rendering', () => {
+describe('Row basic rendering', () => {
   it('Should render', () => {
     const wrapper = mount(
       <table>
         <tbody>
-          <RowRenderer row={0} cells={cells}>
+          <Row row={0} cells={cells}>
             <td className='cell'>cell</td>
-          </RowRenderer>
+          </Row>
         </tbody>
       </table>
     );
 
     const td = wrapper.find('td.cell');
     expect(td.length).toBe(2);
-    expect(td.find('td.rdr-sheet-renderer__action-cell').length).toBe(1);
+    expect(td.find(`td.${ACTION_CELL}`).length).toBe(1);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -31,18 +32,18 @@ describe('RowRenderer basic rendering', () => {
     const wrapper = mount(
       <table>
         <tbody>
-        <RowRenderer
+        <Row
           row={0}
           cells={cells}
-          actionContentRenderer={() => (<span className='abcd-puppy'>Action</span>)}
+          actionRenderer={() => (<span className='abcd-puppy'>Action</span>)}
         >
           <td className='cell'>cell</td>
-        </RowRenderer>
+        </Row>
         </tbody>
       </table>
     );
 
-    expect(wrapper.find('td.rdr-sheet-renderer__action-cell span.abcd-puppy').text())
+    expect(wrapper.find(`td.${ACTION_CELL} span.abcd-puppy`).text())
       .toBe('Action');
   });
 });

@@ -59,7 +59,9 @@ const targetCollect: DropTargetCollector<InjectedDropTargetProps> = (
 });
 
 const RowDragSource =
-  DragSource<RowLocation, InjectedDragSourceProps>(ItemTypes.ROW, sourceSpec, sourceCollect);
+  DragSource<RowLocation, InjectedDragSourceProps, RowLocation>(
+    ItemTypes.ROW, sourceSpec, sourceCollect);
+
 const RowDropTarget = DropTarget<DragDropRowProps<any>, InjectedDropTargetProps>(
   ItemTypes.ROW,
   targetSpec,

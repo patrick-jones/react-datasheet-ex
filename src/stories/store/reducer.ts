@@ -2,8 +2,12 @@ import RDS from 'react-datasheet';
 import {ExampleCellValue, ExampleModel, ExampleRow} from './interfaces';
 import {Actions, ActionTypes, SheetActionCreators} from './actions';
 
+
 /**
- * Redux-like reducer function for mutating state via actions
+ * Redux-like reducer function for mutating state via actions. If you are
+ * using this as inspiration as your own code please note that this is good enough for
+ * the demo, but it's not tested and has at least a couple of bugs that I know about.
+ *
  * @param state ExampleModel
  * @param action Action to process
  */
@@ -15,10 +19,16 @@ export default function reducer(
       return handleCellsChanged(state, action);
     case ActionTypes.SELECTION_CHANGED:
       return isDifferent(action.payload.selected, state.selected) ? action.payload : state;
+    case ActionTypes.OVERFLOW_CHANGED:
+      return action.payload;
     case ActionTypes.HEADER_DROPPED:
       return handleColumnDropped(state, action.payload.source, action.payload.target);
     case ActionTypes.ROW_DROPPED:
       return handleRowDropped(state, action.payload.source, action.payload.target);
+    case ActionTypes.ROW_SELECTION_CHANGED:
+      return handleRowSelectionChanged(state, action.payload.row, action.payload.selected);
+    case ActionTypes.COLUMN_HIDDEN_CHANGED:
+      return handleColumnHiddenChanged(state, action.payload.id, action.payload.hidden);
     default:
       return state;
   }
@@ -52,7 +62,11 @@ function handleCellsChanged(
   addedRows.forEach(addition => {
     while (newRows.length <= addition.row) {
       changed.add(newRows.length);
-      newRows.push(emptyRow(newRows.length, headers));
+      // FIXME: using length is not actually good enough for real-world app;
+      // with row additions/deletions/reordering you would eventually get a collision.
+      // Better to generate new, collision-proof ids in the action creator
+      // and pass them in as part of the payload.
+      newRows.push(emptyRow(newRows.length.toFixed(), headers));
     }
   });
 
@@ -81,9 +95,9 @@ function updateRow(
   changed.add(change.row);
 }
 
-function emptyRow(id: number, dummy: any[]) {
+function emptyRow(id: string, dummy: any[]) {
   return {
-    id: id.toFixed(),
+    id,
     data: dummy.map(() => ({value: ''})),
   };
 }
@@ -96,6 +110,9 @@ function swap<T>(l: T[], target: number, source: number): T[] {
 
 function handleColumnDropped(
   state: ExampleModel, source: number, target: number): Partial<ExampleModel> {
+
+  // FIXME: Need to adjust indices to account for hidden columns
+
   if (source === target) {
     return state;
   }
@@ -119,5 +136,40 @@ function handleRowDropped(
 
   return {
     rows: swap(state.rows, target, source),
+  };
+}
+
+
+function handleRowSelectionChanged(state: ExampleModel, row: number, selected: boolean) {
+  if (state.rows[row].selected === selected) {
+    return state;
+  }
+
+  const rows = [...state.rows];
+
+  rows[row] = {
+    ...(rows[row]),
+    selected,
+  };
+
+  return {
+    rows,
+  };
+}
+
+function handleColumnHiddenChanged(state: ExampleModel, id: string, hidden: boolean) {
+  const index = state.headers.findIndex(h => h.id === id);
+  if ((index < 0) || !!state.headers[index].hidden === hidden) {
+    return state;
+  }
+
+  const headers = [...state.headers];
+  headers[index] = {
+    ...headers[index],
+    hidden,
+  };
+
+  return {
+    headers,
   };
 }

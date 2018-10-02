@@ -1,4 +1,4 @@
-import React, {CSSProperties} from 'react';
+import React, {CSSProperties, ReactNode} from 'react';
 import RDS from 'react-datasheet';
 
 export interface RowLocation {
@@ -9,28 +9,34 @@ export interface ColumnLocation {
   col: number;
 }
 
+export type Overflow = 'wrap' | 'nowrap' | 'clip' | undefined;
+
 export interface ColumnHeader {
   id: string;
   title: string;
+  align?: 'center' | 'left' | 'right';
+  colSpan?: number;
+  className?: string;
+  overflow?: Overflow;
   width?: number;
 }
 
 export interface HeaderRendererProps<T extends ColumnHeader = ColumnHeader> extends ColumnLocation {
   header: T;
+  overflow?: Overflow;
+  className?: string;
+  style?: CSSProperties;
 }
 
 export type HeaderRenderer<T extends ColumnHeader = ColumnHeader,
   R extends HeaderRendererProps<T> = HeaderRendererProps<T>> = React.ComponentType<R>;
-
-export type HeaderContentRenderer<T extends ColumnHeader = ColumnHeader>
-  = React.ComponentType<HeaderRendererProps<T>>;
 
 export interface SheetRendererProps<
     T extends RDS.Cell<T, V>, V = string, H extends ColumnHeader = ColumnHeader
   >
   extends RDS.SheetRendererProps<T, V> {
   /** React style object that should be applied to the enclosing table */
-  style?: CSSProperties | undefined;
+  style?: CSSProperties;
   /**
    * An array of `ColumnHeader`, which are rendered into `th` elements
    * @default []
@@ -39,24 +45,36 @@ export interface SheetRendererProps<
   /**
    * Optional component or function to render the header cell contents.
    * The contents are rendered within a `th` element.
+   * @default DefaultHeaderCellRenderer
+   */
+  headerCellRenderer: HeaderRenderer;
+  /**
+   * Optional component or function to render the header cell contents.
+   * The contents are rendered within a the HeaderCellRenderer.
    * @default DefaultHeaderRenderer
    */
   headerRenderer: HeaderRenderer;
   /**
-   * Optional component or function to render the header cell contents.
-   * The contents are rendered within a `th` element.
-   * @default DefaultHeaderContentRenderer
+   * Grid default for how to render overflow text in headers. For headers, the default
+   * is `clip`. This is separate from the `overflow` property on the grid itself.
    */
-  headerContentRenderer: HeaderContentRenderer;
+  overflow: 'wrap' | 'nowrap' | 'clip';
 }
 
+export type ActionRendererProps<
+  T extends RDS.Cell<T, V>, V = string
+> = Pick<RDS.RowRendererProps<T, V>, Exclude<keyof RDS.RowRendererProps<T, V>, 'children'>>
+  & {id?: string};
 
-export type ActionContentRenderer<T extends RowLocation = RowLocation>
-  = React.ComponentType<T>;
+export type ActionRenderer<
+  T extends RDS.Cell<T, V>, V = string,
+  ARP extends ActionRendererProps<T, V> = ActionRendererProps<T, V>,
+> = React.ComponentType<ARP>;
 
 export interface RowRendererProps<
-    T extends RDS.Cell<T, V>, V = string, AP extends RowLocation = RowLocation
-  > extends RDS.RowRendererProps<T, V> {
-
-  actionContentRenderer?: ActionContentRenderer<AP>;
+  T extends RDS.Cell<T, V>, V = string,
+  ARP extends ActionRendererProps<T, V> = ActionRendererProps<T, V>
+> extends RDS.RowRendererProps<T, V> {
+  id?: string;
+  actionRenderer: ActionRenderer<T, V, ARP>;
 }
