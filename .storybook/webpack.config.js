@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = (baseConfig, env, config) => {
   // add typescript loader:
   config.module.rules.push({

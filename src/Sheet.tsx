@@ -3,38 +3,41 @@ import RDS from 'react-datasheet';
 
 import {
   ColumnHeader,
-  HeaderContentRenderer,
   HeaderRenderer,
   SheetRendererProps,
 } from './interfaces';
-import DefaultHeaderRenderer from './DefaultHeaderRenderer';
-import DefaultHeaderContentRenderer from './DefaultHeaderContentRenderer';
+import HeaderCell from './HeaderCell';
+import HeaderTitle from './HeaderTitle';
+
+import {READ_ONLY_CELL, ACTION_CELL} from './ClassNames';
 
 // import './react-datasheet-ex.css';
 
+
+const actionClassNames = `${READ_ONLY_CELL} ${ACTION_CELL}`;
 
 /**
  * A custom `sheetRenderer` for `react-datasheet` that renders a sheet
  * with column headers and an leading 'action" cell on each row.
  */
-export default class SheetRenderer<
+export default class Sheet<
     T extends RDS.Cell<T, V>, V = string, H extends ColumnHeader = ColumnHeader
   > extends Component<SheetRendererProps<T, V, H>> {
 
-  static displayName = 'SheetRenderer';
-
   static readonly defaultProps = {
     headers: [],
-    headerRenderer: DefaultHeaderRenderer,
-    headerContentRenderer: DefaultHeaderContentRenderer,
+    headerCellRenderer: HeaderCell,
+    headerRenderer: HeaderTitle,
+    overflow: 'clip',
   };
 
   render(): ReactNode {
     const {
       className,
       headers,
+      headerCellRenderer: HeaderCellRenderer,
       headerRenderer: HeaderRenderer,
-      headerContentRenderer: HeaderContentRenderer,
+      overflow,
       style,
     } = this.props;
 
@@ -42,13 +45,16 @@ export default class SheetRenderer<
       <table className={className} style={style}>
         <thead>
           <tr key='$headers'>
-            <th className='cell read-only rdr-sheet-renderer__action-cell' key='$$actionCell'/>
+            <th className={actionClassNames} key='$$actionCell'/>
             {headers.map((header: H, col: number) => {
-              const hrProps = {col, header};
+              const hrProps = {col, header, overflow};
               return (
-                <HeaderRenderer key={`th-${header.id}`} {...hrProps}>
-                  <HeaderContentRenderer key={header.id} {...hrProps} />
-                </HeaderRenderer>
+                <HeaderCellRenderer
+                  key={`header-${header.id}`}
+                  {...hrProps}
+                >
+                  <HeaderRenderer key={header.id} {...hrProps} />
+                </HeaderCellRenderer>
               );
             })}
           </tr>

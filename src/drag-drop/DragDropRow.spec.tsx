@@ -5,24 +5,28 @@ import {DragDropContext} from 'react-dnd';
 import Backend, {TestBackend} from 'react-dnd-test-backend';
 import toJson from 'enzyme-to-json';
 
-import DragDropRowRenderer from './DragDropRowRenderer';
+import DragDropRow from './DragDropRow';
 import DragDropRowProvider from './DragDropRowProvider';
+import {ExampleCellType} from '../stories/store/interfaces';
 
+const rows: ExampleCellType[][] = [
+  [{value: 'Row 0'}],
+  [{value: 'Row 1'}],
+];
 
 function testableComponent(spyA: jest.Mock, spyB: jest.Mock) {
   return DragDropContext(Backend)(
-
     class TestContainer extends React.Component {
       render() {
         return (
           <table>
             <tbody>
-            <DragDropRowRenderer row={0} cells={[{value: 'Row 0'}]} onRowDropped={spyA}>
+            <DragDropRow row={0} cells={rows[0]} onRowDropped={spyA}>
               <td>Row 0</td>
-            </DragDropRowRenderer>
-            <DragDropRowRenderer row={1} cells={[{value: 'Row 1'}]} onRowDropped={spyB}>
+            </DragDropRow>
+            <DragDropRow row={1} cells={rows[1]} onRowDropped={spyB}>
               <td>Row 1</td>
-            </DragDropRowRenderer>
+            </DragDropRow>
             </tbody>
           </table>
         );

@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DragDropHeader matches snapshot 1`] = `
+<DragDropContext(TestContainer)>
+  <TestContainer>
+    <table>
+      <thead>
+        <tr>
+          <td>
+            <DragDropHeader
+              col={0}
+              header={
+                Object {
+                  "id": "A",
+                  "title": "A",
+                }
+              }
+              onHeaderDropped={[MockFunction]}
+            >
+              <DropTarget(DragSource(DragDropHeader))
+                col={0}
+                onHeaderDropped={[MockFunction]}
+              >
+                <DragSource(DragDropHeader)
+                  col={0}
+                  connectDropTarget={[Function]}
+                  isDropOver={false}
+                  onHeaderDropped={[MockFunction]}
+                >
+                  <DragDropHeader
+                    col={0}
+                    connectDragPreview={[Function]}
+                    connectDragSource={[Function]}
+                    connectDropTarget={[Function]}
+                    isDropOver={false}
+                    onHeaderDropped={[MockFunction]}
+                  >
+                    <span
+                      className="rdx-header-drag-source"
+                    >
+                      <HeaderTitle
+                        className=""
+                        col={0}
+                        header={
+                          Object {
+                            "id": "A",
+                            "title": "A",
+                          }
+                        }
+                        onHeaderDropped={[MockFunction]}
+                      >
+                        <span
+                          className="rdx-header-cell-title rdx-header-cell-title--clip"
+                        >
+                          A
+                        </span>
+                      </HeaderTitle>
+                    </span>
+                  </DragDropHeader>
+                </DragSource(DragDropHeader)>
+              </DropTarget(DragSource(DragDropHeader))>
+            </DragDropHeader>
+          </td>
+          <td>
+            <DragDropHeader
+              col={1}
+              header={
+                Object {
+                  "id": "B",
+                  "title": "B",
+                }
+              }
+              onHeaderDropped={[MockFunction]}
+            >
+              <DropTarget(DragSource(DragDropHeader))
+                col={1}
+                onHeaderDropped={[MockFunction]}
+              >
+                <DragSource(DragDropHeader)
+                  col={1}
+                  connectDropTarget={[Function]}
+                  isDropOver={false}
+                  onHeaderDropped={[MockFunction]}
+                >
+                  <DragDropHeader
+                    col={1}
+                    connectDragPreview={[Function]}
+                    connectDragSource={[Function]}
+                    connectDropTarget={[Function]}
+                    isDropOver={false}
+                    onHeaderDropped={[MockFunction]}
+                  >
+                    <span
+                      className="rdx-header-drag-source"
+                    >
+                      <HeaderTitle
+                        className=""
+                        col={1}
+                        header={
+                          Object {
+                            "id": "B",
+                            "title": "B",
+                          }
+                        }
+                        onHeaderDropped={[MockFunction]}
+                      >
+                        <span
+                          className="rdx-header-cell-title rdx-header-cell-title--clip"
+                        >
+                          B
+                        </span>
+                      </HeaderTitle>
+                    </span>
+                  </DragDropHeader>
+                </DragSource(DragDropHeader)>
+              </DropTarget(DragSource(DragDropHeader))>
+            </DragDropHeader>
+          </td>
+        </tr>
+      </thead>
+    </table>
+  </TestContainer>
+</DragDropContext(TestContainer)>
+`;

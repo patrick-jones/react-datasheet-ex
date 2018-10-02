@@ -62,12 +62,12 @@ const _targetCollect: DropTargetCollector<InjectedDropTargetProps> = (
   isDropOver: monitor.isOver() && monitor.canDrop(),
 });
 
-const HeaderDragSource = DragSource<ColumnLocation>(
+const HeaderDragSource = DragSource<ColumnLocation, InjectedDragSourceProps, ColumnLocation>(
   ItemTypes.COLUMN,
   _sourceSpec,
   _sourceCollect
 );
-const HeaderDropTarget = DropTarget<DragDropHeaderProps>(
+const HeaderDropTarget = DropTarget<DragDropHeaderProps, InjectedDropTargetProps>(
   ItemTypes.COLUMN,
   _targetSpec,
   _targetCollect

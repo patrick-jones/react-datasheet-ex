@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SheetRenderer basic rendering Matches the snapshot 1`] = `
+exports[`Sheet basic rendering Matches the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <SheetRenderer
+  Symbol(enzyme.__unrendered__): <Sheet
     className="foobar"
     data={
       Array [
@@ -51,28 +51,32 @@ ShallowWrapper {
         ],
       ]
     }
-    headerContentRenderer={[Function]}
+    headerCellRenderer={[Function]}
     headerRenderer={[Function]}
     headers={
       Array [
         Object {
+          "align": "left",
           "id": "A",
-          "title": "A",
+          "title": "Left",
+          "width": 80,
         },
         Object {
+          "align": "right",
           "id": "B",
-          "title": "B",
+          "title": "Right",
         },
         Object {
           "id": "C",
-          "title": "C",
+          "title": "Center",
         },
         Object {
           "id": "D",
-          "title": "D",
+          "title": "Long Title that Might Overflow",
         },
       ]
     }
+    overflow="clip"
   >
     <tr>
       <td
@@ -81,7 +85,7 @@ ShallowWrapper {
         shallow
       </td>
     </tr>
-  </SheetRenderer>,
+  </Sheet>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -99,84 +103,102 @@ ShallowWrapper {
         <thead>
           <tr>
             <th
-              className="cell read-only rdr-sheet-renderer__action-cell"
+              className="cell read-only rdx-action-cell"
             />
-            <DefaultHeaderRenderer
+            <HeaderCell
               col={0}
               header={
                 Object {
+                  "align": "left",
                   "id": "A",
-                  "title": "A",
+                  "title": "Left",
+                  "width": 80,
                 }
               }
+              overflow="clip"
             >
-              <DefaultHeaderContentRenderer
+              <HeaderTitle
+                className=""
                 col={0}
                 header={
                   Object {
+                    "align": "left",
                     "id": "A",
-                    "title": "A",
+                    "title": "Left",
+                    "width": 80,
                   }
                 }
+                overflow="clip"
               />
-            </DefaultHeaderRenderer>
-            <DefaultHeaderRenderer
+            </HeaderCell>
+            <HeaderCell
               col={1}
               header={
                 Object {
+                  "align": "right",
                   "id": "B",
-                  "title": "B",
+                  "title": "Right",
                 }
               }
+              overflow="clip"
             >
-              <DefaultHeaderContentRenderer
+              <HeaderTitle
+                className=""
                 col={1}
                 header={
                   Object {
+                    "align": "right",
                     "id": "B",
-                    "title": "B",
+                    "title": "Right",
                   }
                 }
+                overflow="clip"
               />
-            </DefaultHeaderRenderer>
-            <DefaultHeaderRenderer
+            </HeaderCell>
+            <HeaderCell
               col={2}
               header={
                 Object {
                   "id": "C",
-                  "title": "C",
+                  "title": "Center",
                 }
               }
+              overflow="clip"
             >
-              <DefaultHeaderContentRenderer
+              <HeaderTitle
+                className=""
                 col={2}
                 header={
                   Object {
                     "id": "C",
-                    "title": "C",
+                    "title": "Center",
                   }
                 }
+                overflow="clip"
               />
-            </DefaultHeaderRenderer>
-            <DefaultHeaderRenderer
+            </HeaderCell>
+            <HeaderCell
               col={3}
               header={
                 Object {
                   "id": "D",
-                  "title": "D",
+                  "title": "Long Title that Might Overflow",
                 }
               }
+              overflow="clip"
             >
-              <DefaultHeaderContentRenderer
+              <HeaderTitle
+                className=""
                 col={3}
                 header={
                   Object {
                     "id": "D",
-                    "title": "D",
+                    "title": "Long Title that Might Overflow",
                   }
                 }
+                overflow="clip"
               />
-            </DefaultHeaderRenderer>
+            </HeaderCell>
           </tr>
         </thead>,
         <tbody>
@@ -201,84 +223,102 @@ ShallowWrapper {
         "props": Object {
           "children": <tr>
             <th
-              className="cell read-only rdr-sheet-renderer__action-cell"
+              className="cell read-only rdx-action-cell"
             />
-            <DefaultHeaderRenderer
+            <HeaderCell
               col={0}
               header={
                 Object {
+                  "align": "left",
                   "id": "A",
-                  "title": "A",
+                  "title": "Left",
+                  "width": 80,
                 }
               }
+              overflow="clip"
             >
-              <DefaultHeaderContentRenderer
+              <HeaderTitle
+                className=""
                 col={0}
                 header={
                   Object {
+                    "align": "left",
                     "id": "A",
-                    "title": "A",
+                    "title": "Left",
+                    "width": 80,
                   }
                 }
+                overflow="clip"
               />
-            </DefaultHeaderRenderer>
-            <DefaultHeaderRenderer
+            </HeaderCell>
+            <HeaderCell
               col={1}
               header={
                 Object {
+                  "align": "right",
                   "id": "B",
-                  "title": "B",
+                  "title": "Right",
                 }
               }
+              overflow="clip"
             >
-              <DefaultHeaderContentRenderer
+              <HeaderTitle
+                className=""
                 col={1}
                 header={
                   Object {
+                    "align": "right",
                     "id": "B",
-                    "title": "B",
+                    "title": "Right",
                   }
                 }
+                overflow="clip"
               />
-            </DefaultHeaderRenderer>
-            <DefaultHeaderRenderer
+            </HeaderCell>
+            <HeaderCell
               col={2}
               header={
                 Object {
                   "id": "C",
-                  "title": "C",
+                  "title": "Center",
                 }
               }
+              overflow="clip"
             >
-              <DefaultHeaderContentRenderer
+              <HeaderTitle
+                className=""
                 col={2}
                 header={
                   Object {
                     "id": "C",
-                    "title": "C",
+                    "title": "Center",
                   }
                 }
+                overflow="clip"
               />
-            </DefaultHeaderRenderer>
-            <DefaultHeaderRenderer
+            </HeaderCell>
+            <HeaderCell
               col={3}
               header={
                 Object {
                   "id": "D",
-                  "title": "D",
+                  "title": "Long Title that Might Overflow",
                 }
               }
+              overflow="clip"
             >
-              <DefaultHeaderContentRenderer
+              <HeaderTitle
+                className=""
                 col={3}
                 header={
                   Object {
                     "id": "D",
-                    "title": "D",
+                    "title": "Long Title that Might Overflow",
                   }
                 }
+                overflow="clip"
               />
-            </DefaultHeaderRenderer>
+            </HeaderCell>
           </tr>,
         },
         "ref": null,
@@ -289,85 +329,103 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <th
-                className="cell read-only rdr-sheet-renderer__action-cell"
+                className="cell read-only rdx-action-cell"
               />,
               Array [
-                <DefaultHeaderRenderer
+                <HeaderCell
                   col={0}
                   header={
                     Object {
+                      "align": "left",
                       "id": "A",
-                      "title": "A",
+                      "title": "Left",
+                      "width": 80,
                     }
                   }
+                  overflow="clip"
                 >
-                  <DefaultHeaderContentRenderer
+                  <HeaderTitle
+                    className=""
                     col={0}
                     header={
                       Object {
+                        "align": "left",
                         "id": "A",
-                        "title": "A",
+                        "title": "Left",
+                        "width": 80,
                       }
                     }
+                    overflow="clip"
                   />
-                </DefaultHeaderRenderer>,
-                <DefaultHeaderRenderer
+                </HeaderCell>,
+                <HeaderCell
                   col={1}
                   header={
                     Object {
+                      "align": "right",
                       "id": "B",
-                      "title": "B",
+                      "title": "Right",
                     }
                   }
+                  overflow="clip"
                 >
-                  <DefaultHeaderContentRenderer
+                  <HeaderTitle
+                    className=""
                     col={1}
                     header={
                       Object {
+                        "align": "right",
                         "id": "B",
-                        "title": "B",
+                        "title": "Right",
                       }
                     }
+                    overflow="clip"
                   />
-                </DefaultHeaderRenderer>,
-                <DefaultHeaderRenderer
+                </HeaderCell>,
+                <HeaderCell
                   col={2}
                   header={
                     Object {
                       "id": "C",
-                      "title": "C",
+                      "title": "Center",
                     }
                   }
+                  overflow="clip"
                 >
-                  <DefaultHeaderContentRenderer
+                  <HeaderTitle
+                    className=""
                     col={2}
                     header={
                       Object {
                         "id": "C",
-                        "title": "C",
+                        "title": "Center",
                       }
                     }
+                    overflow="clip"
                   />
-                </DefaultHeaderRenderer>,
-                <DefaultHeaderRenderer
+                </HeaderCell>,
+                <HeaderCell
                   col={3}
                   header={
                     Object {
                       "id": "D",
-                      "title": "D",
+                      "title": "Long Title that Might Overflow",
                     }
                   }
+                  overflow="clip"
                 >
-                  <DefaultHeaderContentRenderer
+                  <HeaderTitle
+                    className=""
                     col={3}
                     header={
                       Object {
                         "id": "D",
-                        "title": "D",
+                        "title": "Long Title that Might Overflow",
                       }
                     }
+                    overflow="clip"
                   />
-                </DefaultHeaderRenderer>,
+                </HeaderCell>,
               ],
             ],
           },
@@ -378,7 +436,7 @@ ShallowWrapper {
               "key": "$$actionCell",
               "nodeType": "host",
               "props": Object {
-                "className": "cell read-only rdr-sheet-renderer__action-cell",
+                "className": "cell read-only rdx-action-cell",
               },
               "ref": null,
               "rendered": null,
@@ -386,23 +444,30 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": "th-A",
+              "key": "header-A",
               "nodeType": "class",
               "props": Object {
-                "children": <DefaultHeaderContentRenderer
+                "children": <HeaderTitle
+                  className=""
                   col={0}
                   header={
                     Object {
+                      "align": "left",
                       "id": "A",
-                      "title": "A",
+                      "title": "Left",
+                      "width": 80,
                     }
                   }
+                  overflow="clip"
                 />,
                 "col": 0,
                 "header": Object {
+                  "align": "left",
                   "id": "A",
-                  "title": "A",
+                  "title": "Left",
+                  "width": 80,
                 },
+                "overflow": "clip",
               },
               "ref": null,
               "rendered": Object {
@@ -410,11 +475,15 @@ ShallowWrapper {
                 "key": "A",
                 "nodeType": "class",
                 "props": Object {
+                  "className": "",
                   "col": 0,
                   "header": Object {
+                    "align": "left",
                     "id": "A",
-                    "title": "A",
+                    "title": "Left",
+                    "width": 80,
                   },
+                  "overflow": "clip",
                 },
                 "ref": null,
                 "rendered": null,
@@ -424,23 +493,28 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": "th-B",
+              "key": "header-B",
               "nodeType": "class",
               "props": Object {
-                "children": <DefaultHeaderContentRenderer
+                "children": <HeaderTitle
+                  className=""
                   col={1}
                   header={
                     Object {
+                      "align": "right",
                       "id": "B",
-                      "title": "B",
+                      "title": "Right",
                     }
                   }
+                  overflow="clip"
                 />,
                 "col": 1,
                 "header": Object {
+                  "align": "right",
                   "id": "B",
-                  "title": "B",
+                  "title": "Right",
                 },
+                "overflow": "clip",
               },
               "ref": null,
               "rendered": Object {
@@ -448,11 +522,14 @@ ShallowWrapper {
                 "key": "B",
                 "nodeType": "class",
                 "props": Object {
+                  "className": "",
                   "col": 1,
                   "header": Object {
+                    "align": "right",
                     "id": "B",
-                    "title": "B",
+                    "title": "Right",
                   },
+                  "overflow": "clip",
                 },
                 "ref": null,
                 "rendered": null,
@@ -462,23 +539,26 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": "th-C",
+              "key": "header-C",
               "nodeType": "class",
               "props": Object {
-                "children": <DefaultHeaderContentRenderer
+                "children": <HeaderTitle
+                  className=""
                   col={2}
                   header={
                     Object {
                       "id": "C",
-                      "title": "C",
+                      "title": "Center",
                     }
                   }
+                  overflow="clip"
                 />,
                 "col": 2,
                 "header": Object {
                   "id": "C",
-                  "title": "C",
+                  "title": "Center",
                 },
+                "overflow": "clip",
               },
               "ref": null,
               "rendered": Object {
@@ -486,11 +566,13 @@ ShallowWrapper {
                 "key": "C",
                 "nodeType": "class",
                 "props": Object {
+                  "className": "",
                   "col": 2,
                   "header": Object {
                     "id": "C",
-                    "title": "C",
+                    "title": "Center",
                   },
+                  "overflow": "clip",
                 },
                 "ref": null,
                 "rendered": null,
@@ -500,23 +582,26 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": "th-D",
+              "key": "header-D",
               "nodeType": "class",
               "props": Object {
-                "children": <DefaultHeaderContentRenderer
+                "children": <HeaderTitle
+                  className=""
                   col={3}
                   header={
                     Object {
                       "id": "D",
-                      "title": "D",
+                      "title": "Long Title that Might Overflow",
                     }
                   }
+                  overflow="clip"
                 />,
                 "col": 3,
                 "header": Object {
                   "id": "D",
-                  "title": "D",
+                  "title": "Long Title that Might Overflow",
                 },
+                "overflow": "clip",
               },
               "ref": null,
               "rendered": Object {
@@ -524,11 +609,13 @@ ShallowWrapper {
                 "key": "D",
                 "nodeType": "class",
                 "props": Object {
+                  "className": "",
                   "col": 3,
                   "header": Object {
                     "id": "D",
-                    "title": "D",
+                    "title": "Long Title that Might Overflow",
                   },
+                  "overflow": "clip",
                 },
                 "ref": null,
                 "rendered": null,
@@ -596,84 +683,102 @@ ShallowWrapper {
           <thead>
             <tr>
               <th
-                className="cell read-only rdr-sheet-renderer__action-cell"
+                className="cell read-only rdx-action-cell"
               />
-              <DefaultHeaderRenderer
+              <HeaderCell
                 col={0}
                 header={
                   Object {
+                    "align": "left",
                     "id": "A",
-                    "title": "A",
+                    "title": "Left",
+                    "width": 80,
                   }
                 }
+                overflow="clip"
               >
-                <DefaultHeaderContentRenderer
+                <HeaderTitle
+                  className=""
                   col={0}
                   header={
                     Object {
+                      "align": "left",
                       "id": "A",
-                      "title": "A",
+                      "title": "Left",
+                      "width": 80,
                     }
                   }
+                  overflow="clip"
                 />
-              </DefaultHeaderRenderer>
-              <DefaultHeaderRenderer
+              </HeaderCell>
+              <HeaderCell
                 col={1}
                 header={
                   Object {
+                    "align": "right",
                     "id": "B",
-                    "title": "B",
+                    "title": "Right",
                   }
                 }
+                overflow="clip"
               >
-                <DefaultHeaderContentRenderer
+                <HeaderTitle
+                  className=""
                   col={1}
                   header={
                     Object {
+                      "align": "right",
                       "id": "B",
-                      "title": "B",
+                      "title": "Right",
                     }
                   }
+                  overflow="clip"
                 />
-              </DefaultHeaderRenderer>
-              <DefaultHeaderRenderer
+              </HeaderCell>
+              <HeaderCell
                 col={2}
                 header={
                   Object {
                     "id": "C",
-                    "title": "C",
+                    "title": "Center",
                   }
                 }
+                overflow="clip"
               >
-                <DefaultHeaderContentRenderer
+                <HeaderTitle
+                  className=""
                   col={2}
                   header={
                     Object {
                       "id": "C",
-                      "title": "C",
+                      "title": "Center",
                     }
                   }
+                  overflow="clip"
                 />
-              </DefaultHeaderRenderer>
-              <DefaultHeaderRenderer
+              </HeaderCell>
+              <HeaderCell
                 col={3}
                 header={
                   Object {
                     "id": "D",
-                    "title": "D",
+                    "title": "Long Title that Might Overflow",
                   }
                 }
+                overflow="clip"
               >
-                <DefaultHeaderContentRenderer
+                <HeaderTitle
+                  className=""
                   col={3}
                   header={
                     Object {
                       "id": "D",
-                      "title": "D",
+                      "title": "Long Title that Might Overflow",
                     }
                   }
+                  overflow="clip"
                 />
-              </DefaultHeaderRenderer>
+              </HeaderCell>
             </tr>
           </thead>,
           <tbody>
@@ -698,84 +803,102 @@ ShallowWrapper {
           "props": Object {
             "children": <tr>
               <th
-                className="cell read-only rdr-sheet-renderer__action-cell"
+                className="cell read-only rdx-action-cell"
               />
-              <DefaultHeaderRenderer
+              <HeaderCell
                 col={0}
                 header={
                   Object {
+                    "align": "left",
                     "id": "A",
-                    "title": "A",
+                    "title": "Left",
+                    "width": 80,
                   }
                 }
+                overflow="clip"
               >
-                <DefaultHeaderContentRenderer
+                <HeaderTitle
+                  className=""
                   col={0}
                   header={
                     Object {
+                      "align": "left",
                       "id": "A",
-                      "title": "A",
+                      "title": "Left",
+                      "width": 80,
                     }
                   }
+                  overflow="clip"
                 />
-              </DefaultHeaderRenderer>
-              <DefaultHeaderRenderer
+              </HeaderCell>
+              <HeaderCell
                 col={1}
                 header={
                   Object {
+                    "align": "right",
                     "id": "B",
-                    "title": "B",
+                    "title": "Right",
                   }
                 }
+                overflow="clip"
               >
-                <DefaultHeaderContentRenderer
+                <HeaderTitle
+                  className=""
                   col={1}
                   header={
                     Object {
+                      "align": "right",
                       "id": "B",
-                      "title": "B",
+                      "title": "Right",
                     }
                   }
+                  overflow="clip"
                 />
-              </DefaultHeaderRenderer>
-              <DefaultHeaderRenderer
+              </HeaderCell>
+              <HeaderCell
                 col={2}
                 header={
                   Object {
                     "id": "C",
-                    "title": "C",
+                    "title": "Center",
                   }
                 }
+                overflow="clip"
               >
-                <DefaultHeaderContentRenderer
+                <HeaderTitle
+                  className=""
                   col={2}
                   header={
                     Object {
                       "id": "C",
-                      "title": "C",
+                      "title": "Center",
                     }
                   }
+                  overflow="clip"
                 />
-              </DefaultHeaderRenderer>
-              <DefaultHeaderRenderer
+              </HeaderCell>
+              <HeaderCell
                 col={3}
                 header={
                   Object {
                     "id": "D",
-                    "title": "D",
+                    "title": "Long Title that Might Overflow",
                   }
                 }
+                overflow="clip"
               >
-                <DefaultHeaderContentRenderer
+                <HeaderTitle
+                  className=""
                   col={3}
                   header={
                     Object {
                       "id": "D",
-                      "title": "D",
+                      "title": "Long Title that Might Overflow",
                     }
                   }
+                  overflow="clip"
                 />
-              </DefaultHeaderRenderer>
+              </HeaderCell>
             </tr>,
           },
           "ref": null,
@@ -786,85 +909,103 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <th
-                  className="cell read-only rdr-sheet-renderer__action-cell"
+                  className="cell read-only rdx-action-cell"
                 />,
                 Array [
-                  <DefaultHeaderRenderer
+                  <HeaderCell
                     col={0}
                     header={
                       Object {
+                        "align": "left",
                         "id": "A",
-                        "title": "A",
+                        "title": "Left",
+                        "width": 80,
                       }
                     }
+                    overflow="clip"
                   >
-                    <DefaultHeaderContentRenderer
+                    <HeaderTitle
+                      className=""
                       col={0}
                       header={
                         Object {
+                          "align": "left",
                           "id": "A",
-                          "title": "A",
+                          "title": "Left",
+                          "width": 80,
                         }
                       }
+                      overflow="clip"
                     />
-                  </DefaultHeaderRenderer>,
-                  <DefaultHeaderRenderer
+                  </HeaderCell>,
+                  <HeaderCell
                     col={1}
                     header={
                       Object {
+                        "align": "right",
                         "id": "B",
-                        "title": "B",
+                        "title": "Right",
                       }
                     }
+                    overflow="clip"
                   >
-                    <DefaultHeaderContentRenderer
+                    <HeaderTitle
+                      className=""
                       col={1}
                       header={
                         Object {
+                          "align": "right",
                           "id": "B",
-                          "title": "B",
+                          "title": "Right",
                         }
                       }
+                      overflow="clip"
                     />
-                  </DefaultHeaderRenderer>,
-                  <DefaultHeaderRenderer
+                  </HeaderCell>,
+                  <HeaderCell
                     col={2}
                     header={
                       Object {
                         "id": "C",
-                        "title": "C",
+                        "title": "Center",
                       }
                     }
+                    overflow="clip"
                   >
-                    <DefaultHeaderContentRenderer
+                    <HeaderTitle
+                      className=""
                       col={2}
                       header={
                         Object {
                           "id": "C",
-                          "title": "C",
+                          "title": "Center",
                         }
                       }
+                      overflow="clip"
                     />
-                  </DefaultHeaderRenderer>,
-                  <DefaultHeaderRenderer
+                  </HeaderCell>,
+                  <HeaderCell
                     col={3}
                     header={
                       Object {
                         "id": "D",
-                        "title": "D",
+                        "title": "Long Title that Might Overflow",
                       }
                     }
+                    overflow="clip"
                   >
-                    <DefaultHeaderContentRenderer
+                    <HeaderTitle
+                      className=""
                       col={3}
                       header={
                         Object {
                           "id": "D",
-                          "title": "D",
+                          "title": "Long Title that Might Overflow",
                         }
                       }
+                      overflow="clip"
                     />
-                  </DefaultHeaderRenderer>,
+                  </HeaderCell>,
                 ],
               ],
             },
@@ -875,7 +1016,7 @@ ShallowWrapper {
                 "key": "$$actionCell",
                 "nodeType": "host",
                 "props": Object {
-                  "className": "cell read-only rdr-sheet-renderer__action-cell",
+                  "className": "cell read-only rdx-action-cell",
                 },
                 "ref": null,
                 "rendered": null,
@@ -883,23 +1024,30 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": "th-A",
+                "key": "header-A",
                 "nodeType": "class",
                 "props": Object {
-                  "children": <DefaultHeaderContentRenderer
+                  "children": <HeaderTitle
+                    className=""
                     col={0}
                     header={
                       Object {
+                        "align": "left",
                         "id": "A",
-                        "title": "A",
+                        "title": "Left",
+                        "width": 80,
                       }
                     }
+                    overflow="clip"
                   />,
                   "col": 0,
                   "header": Object {
+                    "align": "left",
                     "id": "A",
-                    "title": "A",
+                    "title": "Left",
+                    "width": 80,
                   },
+                  "overflow": "clip",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -907,11 +1055,15 @@ ShallowWrapper {
                   "key": "A",
                   "nodeType": "class",
                   "props": Object {
+                    "className": "",
                     "col": 0,
                     "header": Object {
+                      "align": "left",
                       "id": "A",
-                      "title": "A",
+                      "title": "Left",
+                      "width": 80,
                     },
+                    "overflow": "clip",
                   },
                   "ref": null,
                   "rendered": null,
@@ -921,23 +1073,28 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": "th-B",
+                "key": "header-B",
                 "nodeType": "class",
                 "props": Object {
-                  "children": <DefaultHeaderContentRenderer
+                  "children": <HeaderTitle
+                    className=""
                     col={1}
                     header={
                       Object {
+                        "align": "right",
                         "id": "B",
-                        "title": "B",
+                        "title": "Right",
                       }
                     }
+                    overflow="clip"
                   />,
                   "col": 1,
                   "header": Object {
+                    "align": "right",
                     "id": "B",
-                    "title": "B",
+                    "title": "Right",
                   },
+                  "overflow": "clip",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -945,11 +1102,14 @@ ShallowWrapper {
                   "key": "B",
                   "nodeType": "class",
                   "props": Object {
+                    "className": "",
                     "col": 1,
                     "header": Object {
+                      "align": "right",
                       "id": "B",
-                      "title": "B",
+                      "title": "Right",
                     },
+                    "overflow": "clip",
                   },
                   "ref": null,
                   "rendered": null,
@@ -959,23 +1119,26 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": "th-C",
+                "key": "header-C",
                 "nodeType": "class",
                 "props": Object {
-                  "children": <DefaultHeaderContentRenderer
+                  "children": <HeaderTitle
+                    className=""
                     col={2}
                     header={
                       Object {
                         "id": "C",
-                        "title": "C",
+                        "title": "Center",
                       }
                     }
+                    overflow="clip"
                   />,
                   "col": 2,
                   "header": Object {
                     "id": "C",
-                    "title": "C",
+                    "title": "Center",
                   },
+                  "overflow": "clip",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -983,11 +1146,13 @@ ShallowWrapper {
                   "key": "C",
                   "nodeType": "class",
                   "props": Object {
+                    "className": "",
                     "col": 2,
                     "header": Object {
                       "id": "C",
-                      "title": "C",
+                      "title": "Center",
                     },
+                    "overflow": "clip",
                   },
                   "ref": null,
                   "rendered": null,
@@ -997,23 +1162,26 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": "th-D",
+                "key": "header-D",
                 "nodeType": "class",
                 "props": Object {
-                  "children": <DefaultHeaderContentRenderer
+                  "children": <HeaderTitle
+                    className=""
                     col={3}
                     header={
                       Object {
                         "id": "D",
-                        "title": "D",
+                        "title": "Long Title that Might Overflow",
                       }
                     }
+                    overflow="clip"
                   />,
                   "col": 3,
                   "header": Object {
                     "id": "D",
-                    "title": "D",
+                    "title": "Long Title that Might Overflow",
                   },
+                  "overflow": "clip",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -1021,11 +1189,13 @@ ShallowWrapper {
                   "key": "D",
                   "nodeType": "class",
                   "props": Object {
+                    "className": "",
                     "col": 3,
                     "header": Object {
                       "id": "D",
-                      "title": "D",
+                      "title": "Long Title that Might Overflow",
                     },
+                    "overflow": "clip",
                   },
                   "ref": null,
                   "rendered": null,

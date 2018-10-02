@@ -46,14 +46,12 @@ $ npm install react-dnd react-dnd-html5-backend
 
 
 ```js
+import React from 'react;
 import {DragDropContextProvider} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import {SheetRenderer} from 'react-datasheet-ex';
-import {DragDropRowRenderer, DragDropHeaderRenderer} from 'react-datasheet-ex/drag-drop';
-```
+import {DragDropRow, DragDropHeader, Sheet} from 'react-datasheet-ex';
 
-```js
-class Example extends Component {
+class DragDropRenderersSheet extends Component {
   
   sheetRenderer = sheetRendererProps => (
     <SheetRenderer
@@ -64,11 +62,13 @@ class Example extends Component {
   )
   
   headerRenderer = hrProps => (
-    <DragDropHeaderRenderer {...hrProps} onHeaderDropped={this.props.onHeaderDropped}/>
+    <DragDropHeader {...hrProps} onHeaderDropped={this.props.onHeaderDropped}>
+      {hrProps.header.title}
+    </DragDropHeader>
   )
   
   rowRenderer = rowRendererProps => (
-    <DragDropRowRenderer {...rowRendererProps} onRowDropped={this.props.onRowDropped} />
+    <DragDropRow {...rowRendererProps} onRowDropped={this.props.onRowDropped} />
   )
   
   
