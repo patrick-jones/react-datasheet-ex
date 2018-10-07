@@ -9,11 +9,12 @@
     "no-consecutive-blank-lines": [true, 2],
     "no-var-keyword": true,
     "no-parameter-reassignment": true,
-    "no-trailing-whitespace": [true, "ignore-blank-lines"],
+    "no-trailing-whitespace": [true, "ignore-blank-lines", "ignore-comments"],
 
     "object-curly-spacing": false,
     "object-shorthand-properties-first": false,
     "quotemark": [true, "single", "avoid-escape"],
+    "semicolon": [true, "always", "strict-bound-class-methods"],
     "ter-arrow-parens": [true, "as-needed"],
     "trailing-comma": [
       true,

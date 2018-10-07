@@ -5,8 +5,8 @@ exports[`DragDropRowRenderer matches snapshot 1`] = `
   <TestContainer>
     <table>
       <tbody>
-        <DragDropRowRenderer
-          actionContentRenderer={[Function]}
+        <DragDropRow
+          actionRenderer={[Function]}
           cells={
             Array [
               Object {
@@ -36,14 +36,22 @@ exports[`DragDropRowRenderer matches snapshot 1`] = `
                 row={0}
               >
                 <tr
-                  className="rdr-sheet-renderer__row "
+                  className="rdx-row"
                   key="$row-0"
                 >
                   <td
-                    className="cell read-only rdr-sheet-renderer__action-cell rdr-sheet-renderer__action-cell--drag-source"
+                    className="cell read-only rdx-action-cell rdx-row-drag-source"
                     key="$$actionCell"
                   >
-                    <DefaultActionContentRenderer
+                    <DefaultAction
+                      cells={
+                        Array [
+                          Object {
+                            "value": "Row 0",
+                          },
+                        ]
+                      }
+                      onRowDropped={[MockFunction]}
                       row={0}
                     />
                   </td>
@@ -54,9 +62,9 @@ exports[`DragDropRowRenderer matches snapshot 1`] = `
               </DragDropRow>
             </DragSource(DragDropRow)>
           </DropTarget(DragSource(DragDropRow))>
-        </DragDropRowRenderer>
-        <DragDropRowRenderer
-          actionContentRenderer={[Function]}
+        </DragDropRow>
+        <DragDropRow
+          actionRenderer={[Function]}
           cells={
             Array [
               Object {
@@ -86,14 +94,22 @@ exports[`DragDropRowRenderer matches snapshot 1`] = `
                 row={1}
               >
                 <tr
-                  className="rdr-sheet-renderer__row "
+                  className="rdx-row"
                   key="$row-1"
                 >
                   <td
-                    className="cell read-only rdr-sheet-renderer__action-cell rdr-sheet-renderer__action-cell--drag-source"
+                    className="cell read-only rdx-action-cell rdx-row-drag-source"
                     key="$$actionCell"
                   >
-                    <DefaultActionContentRenderer
+                    <DefaultAction
+                      cells={
+                        Array [
+                          Object {
+                            "value": "Row 1",
+                          },
+                        ]
+                      }
+                      onRowDropped={[MockFunction]}
                       row={1}
                     />
                   </td>
@@ -104,7 +120,7 @@ exports[`DragDropRowRenderer matches snapshot 1`] = `
               </DragDropRow>
             </DragSource(DragDropRow)>
           </DropTarget(DragSource(DragDropRow))>
-        </DragDropRowRenderer>
+        </DragDropRow>
       </tbody>
     </table>
   </TestContainer>

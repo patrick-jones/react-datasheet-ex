@@ -1,17 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DefaultHeaderContentRenderer matches snapshot 1`] = `
+exports[`HeaderContainer matches snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DefaultHeaderContentRenderer
-    col={0}
-    header={
+  Symbol(enzyme.__unrendered__): <HeaderContainer
+    className="foo-bar"
+    style={
       Object {
-        "id": "foo",
-        "title": "AA",
+        "background": "blue",
       }
     }
-  />,
+  >
+    content
+  </HeaderContainer>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -20,9 +21,37 @@ ShallowWrapper {
     "simulateEvent": [Function],
     "unmount": [Function],
   },
-  Symbol(enzyme.__node__): "AA",
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "content",
+      "className": "rdx-header-cell-container foo-bar",
+      "style": Object {
+        "background": "blue",
+      },
+    },
+    "ref": null,
+    "rendered": "content",
+    "type": "span",
+  },
   Symbol(enzyme.__nodes__): Array [
-    "AA",
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "content",
+        "className": "rdx-header-cell-container foo-bar",
+        "style": Object {
+          "background": "blue",
+        },
+      },
+      "ref": null,
+      "rendered": "content",
+      "type": "span",
+    },
   ],
   Symbol(enzyme.__options__): Object {
     "adapter": ReactSixteenAdapter {

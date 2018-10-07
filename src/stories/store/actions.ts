@@ -1,5 +1,6 @@
 import RDS from 'react-datasheet';
 import {ExampleCellType} from './interfaces';
+import {Overflow} from '../../interfaces';
 
 /**
  * Some quick redux-like interfaces
@@ -51,8 +52,11 @@ const createAction = <T extends string, P>(type: T, payload: P) => ({type, paylo
 export enum ActionTypes {
   CELLS_CHANGED = 'rds-ex__cells-changed',
   SELECTION_CHANGED = 'rds-ex__selection-changed',
+  OVERFLOW_CHANGED = 'rds-ex__overflow-changed',
   HEADER_DROPPED = 'rds-ex__header-dropped',
   ROW_DROPPED = 'rds-ex__row-dropped',
+  ROW_SELECTION_CHANGED = 'rds-ex__row-selection-changed',
+  COLUMN_HIDDEN_CHANGED = 'rds-ex__column-hidden-changed',
 }
 
 export const SheetActionCreators = {
@@ -61,10 +65,16 @@ export const SheetActionCreators = {
       createAction(ActionTypes.CELLS_CHANGED, {changes, additions}),
   selectionChanged: (selected: RDS.Selection) =>
     createAction(ActionTypes.SELECTION_CHANGED, {selected}),
+  overflowChanged: (overflow: Overflow) =>
+    createAction(ActionTypes.OVERFLOW_CHANGED, {overflow}),
   headerDropped: (source: number, target: number) =>
     createAction(ActionTypes.HEADER_DROPPED, {source, target}),
   rowDropped: (source: number, target: number) =>
     createAction(ActionTypes.ROW_DROPPED, {source, target}),
+  rowSelectionChanged: (row: number, selected: boolean) =>
+    createAction(ActionTypes.ROW_SELECTION_CHANGED, {row, selected}),
+  columnHiddenChanged: (id: string, hidden: boolean) =>
+    createAction(ActionTypes.COLUMN_HIDDEN_CHANGED, {id, hidden}),
 };
 
 export type SheetActionCreators = typeof SheetActionCreators;

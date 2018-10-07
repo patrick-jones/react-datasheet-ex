@@ -5,7 +5,7 @@ import {DragDropContext} from 'react-dnd';
 import Backend, {TestBackend} from 'react-dnd-test-backend';
 import toJson from 'enzyme-to-json';
 
-import DragDropHeaderRenderer from './DragDropHeaderRenderer';
+import DragDropHeader from './DragDropHeader';
 import DragDropHeaderProvider from './DragDropHeaderProvider';
 
 
@@ -18,20 +18,24 @@ function testableComponent(spyA: jest.Mock, spyB: jest.Mock) {
           <table>
             <thead>
               <tr>
-                <DragDropHeaderRenderer
-                  col={0}
-                  header={{id: 'A', title: 'A'}}
-                  onHeaderDropped={spyA}
-                >
-                  A
-                </DragDropHeaderRenderer>
-                <DragDropHeaderRenderer
-                  col={1}
-                  header={{id: 'B', title: 'B'}}
-                  onHeaderDropped={spyB}
-                >
-                  B
-                </DragDropHeaderRenderer>
+                <td>
+                  <DragDropHeader
+                    col={0}
+                    header={{id: 'A', title: 'A'}}
+                    onHeaderDropped={spyA}
+                  >
+                    A
+                  </DragDropHeader>
+                </td>
+                <td>
+                  <DragDropHeader
+                    col={1}
+                    header={{id: 'B', title: 'B'}}
+                    onHeaderDropped={spyB}
+                  >
+                    B
+                  </DragDropHeader>
+                </td>
               </tr>
             </thead>
           </table>
@@ -42,7 +46,7 @@ function testableComponent(spyA: jest.Mock, spyB: jest.Mock) {
 }
 
 
-describe('DragDropHeaderRenderer', () => {
+describe('DragDropHeader', () => {
   it('matches snapshot', () => {
     const spyA = jest.fn();
     const spyB = jest.fn();

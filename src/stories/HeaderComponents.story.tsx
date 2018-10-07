@@ -1,20 +1,18 @@
 import React, {ReactNode} from 'react';
-
 import {Store} from '@dump247/storybook-state';
 import {ExampleModel} from './store/interfaces';
-import {SheetActionCreators} from './store/actions';
-import bindDispatch from './store/dispatcher';
-
 import OverflowSelector from './OverflowSelector';
-import DragDropProvidersSheet from './DragDropProvidersSheet';
+import bindDispatch from './store/dispatcher';
+import {SheetActionCreators} from './store/actions';
 
+import HeaderComponentsSheet from './HeaderComponentsSheet';
 
 type Props = {
   store: Store<ExampleModel>
 };
 
 
-export default function DNDProvidersStory(props: Props): ReactNode {
+export default function story(props: Props): ReactNode {
   const {store} = props;
   const actions = bindDispatch(store, SheetActionCreators);
 
@@ -26,7 +24,7 @@ export default function DNDProvidersStory(props: Props): ReactNode {
         onOverflowChanged={actions.overflowChanged}
       />
 
-      <DragDropProvidersSheet actions={actions} model={store.state} />
+      <HeaderComponentsSheet model={store.state} actions={actions} />
     </div>
   );
 }

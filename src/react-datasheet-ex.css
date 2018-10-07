@@ -1,14 +1,84 @@
+.rdx-header-cell, .rdx-action-cell {
+  box-sizing: border-box;
+  position: relative;
+  text-overflow: ellipsis;
+  padding: 0;
+}
 
-.rdr-sheet-renderer__action-cell {
+.data-grid-container .data-grid .cell.rdx-header-cell {
+  vertical-align: top;
+}
+
+.data-grid-container .data-grid .cell.rdx-header-cell--wrap {
+  white-space: normal;
+}
+
+.data-grid-container .data-grid .cell.rdx-header-cell--nowrap {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.data-grid-container .data-grid .cell.rdx-header-cell--clip {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.data-grid-container .data-grid .cell.rdx-header-cell--center {
+  text-align: center;
+}
+
+.data-grid-container .data-grid .cell.rdx-header-cell--left {
+  text-align: left;
+}
+
+.data-grid-container .data-grid .cell.rdx-header-cell--right {
+  text-align: right;
+}
+
+.rdx-header-cell-title {
+  box-sizing: border-box;
+  position: relative;
+  text-overflow: ellipsis;
+
+  margin: 0 0.1em;
+  display: block;
+  max-width: 100%;
+}
+
+.rdx-header-cell-title--wrap {
+  white-space: normal;
+}
+
+.rdx-header-cell-title--nowrap {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.rdx-header-cell-title--clip {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.rdx-action-cell {
   width: 1rem;
 }
 
-.data-grid-container .data-grid .cell.read-only.rdr-sheet-renderer__header-cell--drop-target,
-.data-grid-container .data-grid .rdr-sheet-renderer__row--drop-target {
+.rdx-header-drag-source,
+.data-grid-container .data-grid .cell.read-only.rdx-row-drag-source {
+  cursor: grab;
+  height: 100%;
+}
+
+.rdx-header-drop-target,
+.data-grid-container .data-grid .rdx-row-drop-target {
   background-color: rgba(111, 134, 252, 0.5);
 }
 
-.data-grid-container .data-grid .cell.read-only.rdr-sheet-renderer__header-cell--drag-source,
-.data-grid-container .data-grid .cell.read-only.rdr-sheet-renderer__action-cell--drag-source {
-  cursor: grab;
+.rdx-header-cell-container, .rdx-header-drag-source {
+  height: 100%;
+  width: 100%;
+  align-self: stretch;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }

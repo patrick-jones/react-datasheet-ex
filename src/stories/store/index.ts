@@ -1,3 +1,3 @@
-import {initialState} from './initialState';
+import {model} from './model';
 
-export {initialState};
+export {model};

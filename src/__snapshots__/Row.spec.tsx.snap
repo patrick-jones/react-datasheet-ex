@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RowRenderer basic rendering Should render 1`] = `
+exports[`Row basic rendering Should render 1`] = `
 <table>
   <tbody>
     <RowRenderer
-      actionContentRenderer={[Function]}
+      actionRenderer={[Function]}
       cells={
         Array [
           Object {
@@ -18,10 +18,17 @@ exports[`RowRenderer basic rendering Should render 1`] = `
         key="$row-0"
       >
         <td
-          className="cell read-only rdr-sheet-renderer__action-cell"
+          className="cell read-only rdx-action-cell"
           key="$$actionCell"
         >
-          <DefaultActionContentRenderer
+          <DefaultAction
+            cells={
+              Array [
+                Object {
+                  "value": "cell",
+                },
+              ]
+            }
             row={0}
           />
         </td>

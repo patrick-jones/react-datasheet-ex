@@ -1,6 +1,6 @@
 import DragDropHeaderProvider from './DragDropHeaderProvider';
-import DragDropHeaderRenderer from './DragDropHeaderRenderer';
+import DragDropHeader from './DragDropHeader';
 import DragDropRowProvider from './DragDropRowProvider';
-import DragDropRowRenderer from './DragDropRowRenderer';
+import DragDropRow from './DragDropRow';
 
-export {DragDropHeaderProvider, DragDropHeaderRenderer, DragDropRowProvider, DragDropRowRenderer};
+export {DragDropHeaderProvider, DragDropHeader, DragDropRowProvider, DragDropRow};

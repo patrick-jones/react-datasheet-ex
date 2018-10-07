@@ -1,19 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DefaultHeaderRenderer matches snapshot 1`] = `
+exports[`HeaderTitle matches snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DefaultHeaderRenderer
+  Symbol(enzyme.__unrendered__): <HeaderTitle
+    className=""
     col={0}
     header={
       Object {
-        "id": "foo",
+        "id": "abcd-puppy",
         "title": "AA",
       }
     }
-  >
-    foo
-  </DefaultHeaderRenderer>,
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -24,32 +23,30 @@ ShallowWrapper {
   },
   Symbol(enzyme.__node__): Object {
     "instance": null,
-    "key": "foo",
+    "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "foo",
-      "className": "cell read-only rdr-sheet-renderer__header-cell",
-      "style": Object {},
-      "title": "AA",
+      "children": "AA",
+      "className": "rdx-header-cell-title rdx-header-cell-title--clip",
+      "style": undefined,
     },
     "ref": null,
-    "rendered": "foo",
-    "type": "th",
+    "rendered": "AA",
+    "type": "span",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
-      "key": "foo",
+      "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "foo",
-        "className": "cell read-only rdr-sheet-renderer__header-cell",
-        "style": Object {},
-        "title": "AA",
+        "children": "AA",
+        "className": "rdx-header-cell-title rdx-header-cell-title--clip",
+        "style": undefined,
       },
       "ref": null,
-      "rendered": "foo",
-      "type": "th",
+      "rendered": "AA",
+      "type": "span",
     },
   ],
   Symbol(enzyme.__options__): Object {
