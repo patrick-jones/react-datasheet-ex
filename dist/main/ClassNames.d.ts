@@ -1,0 +1,13 @@
+export declare const READ_ONLY_CELL = "cell read-only";
+export declare const ACTION_CELL = "rdx-action-cell";
+export declare const HEADER_CELL = "rdx-header-cell";
+export declare const HEADER_CELL_LEFT = "rdx-header-cell--left";
+export declare const HEADER_CELL_CENTER = "rdx-header-cell--center";
+export declare const HEADER_CELL_RIGHT = "rdx-header-cell--right";
+export declare const HEADER_CELL_CONTAINER = "rdx-header-cell-container";
+export declare const HEADER_CELL_TITLE = "rdx-header-cell-title";
+export declare const HEADER_DRAG_SOURCE = "rdx-header-drag-source";
+export declare const HEADER_DROP_TARGET = "rdx-header-drop-target";
+export declare const ROW = "rdx-row";
+export declare const ROW_DROP_TARGET = "rdx-row-drop-target";
+export declare const ROW_DRAG_SOURCE = "rdx-row-drag-source";
