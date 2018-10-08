@@ -1,5 +1,7 @@
 import React from 'react';
+import 'jest';
 import {mount, shallow} from 'enzyme';
+import toJson from 'enzyme-to-json';
 import {ColumnHeader} from './interfaces';
 import HeaderCell from './HeaderCell';
 import {HEADER_CELL, HEADER_CELL_CENTER, HEADER_CELL_LEFT, HEADER_CELL_RIGHT} from './ClassNames';
@@ -64,7 +66,7 @@ describe('HeaderCell', () => {
     const wrapper = shallow(
       <HeaderCell col={0} header={header}>{header.id}</HeaderCell>
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
 });

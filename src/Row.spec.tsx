@@ -1,4 +1,5 @@
 import React from 'react';
+import 'jest';
 import {mount} from 'enzyme';
 import toJson from 'enzyme-to-json';
 

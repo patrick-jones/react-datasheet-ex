@@ -1,8 +1,10 @@
 import React from 'react';
-import {mount, shallow} from 'enzyme';
+import 'jest';
+import {shallow} from 'enzyme';
 import HeaderTitle from './HeaderTitle';
 import {ColumnHeader} from './interfaces';
 import {HEADER_CELL_TITLE} from './ClassNames';
+import toJson from 'enzyme-to-json';
 
 
 describe('HeaderTitle', () => {
@@ -46,7 +48,7 @@ describe('HeaderTitle', () => {
 
   it('matches snapshot', () => {
     const wrapper = shallow(<HeaderTitle col={0} header={header} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
 });
