@@ -71,7 +71,8 @@ import React from 'react';
 import {DragDropContextProvider} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import memoize from 'memoize-one';
-import {ClassNames, DragDropRowProvider, DragDropHeaderProvider, HeaderTitle, Sheet} from 'react-datasheet-ex';
+import {ClassNames, Sheet} from 'react-datasheet-ex';
+import {DragDropRowProvider, DragDropHeaderProvider} from 'react-datasheet-ex/drag-drop';
 
 
 class DragDropProvidersSheet extends React.Component {

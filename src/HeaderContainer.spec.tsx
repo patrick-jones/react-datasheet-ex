@@ -1,5 +1,7 @@
 import React from 'react';
+import 'jest';
 import {shallow} from 'enzyme';
+import toJson from 'enzyme-to-json';
 import {HeaderContainer} from './index';
 import {HEADER_CELL_CONTAINER} from './ClassNames';
 
@@ -29,7 +31,7 @@ describe('HeaderContainer', () => {
     const wrapper = shallow(
       <HeaderContainer className={className} style={style}>content</HeaderContainer>
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
 });

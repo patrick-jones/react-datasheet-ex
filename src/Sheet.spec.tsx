@@ -1,5 +1,7 @@
 import React from 'react';
+import 'jest';
 import {shallow} from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import Sheet from './Sheet';
 import {DragDropHeader} from './drag-drop';
@@ -43,7 +45,7 @@ describe('Sheet basic rendering', () => {
         </tr>
       </Sheet>
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('Correctly renders optional properties', () => {

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "outDir": "dist/main",
+    "outDir": "dist/lib",
     "rootDir": "src",
     "moduleResolution": "node",
     "module": "commonjs",
@@ -32,6 +32,11 @@
     "typeRoots": ["node_modules/@types"]
   },
   "include": ["./src"],
-  "exclude": ["./node_modules/**", "./src/stories/**", "**/*.story.*"],
+  "exclude": [
+    "./node_modules/**",
+    "./src/stories/**/*",
+    "**/*.story.*",
+    "**/*.spec.*"
+  ],
   "compileOnSave": false
 }
