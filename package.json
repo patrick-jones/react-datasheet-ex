@@ -1,42 +1,40 @@
 {
   "name": "react-datasheet-ex",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Custom renderers for react-datasheet",
   "author": "Patrick Jones <pjnola@gmail.com>",
-  "main": "dist/main/index.js",
-  "module": "dist/lib/index.js",
-  "typings": "dist/types/index.d.ts",
+  "main": "dist/lib/index.js",
+  "typings": "dist/lib/index.d.ts",
   "repository": "https://github.com/patrick-jones/react-datasheet-ex.git",
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "clean": "rimraf dist ./*.css",
+    "clean": "rimraf dist",
     "lint": "tslint --project .",
     "fix": "tslint --fix --project .",
     "build": "run-s clean lint build:*",
-    "build:cjs": "tsc -p tsconfig.commonjs.json",
-    "build:es": "tsc -p tsconfig.module.json",
-    "build:typedefs": "tsc --outDir ./dist/types --emitDeclarationOnly",
-    "build:css": "cp src/react-datasheet-ex.css ./",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:cp": "cp src/react-datasheet-ex.css ./dist/lib && cp package.json ./dist/lib",
     "test": "jest --coverage --verbose",
     "watch": "jest --watch --coverage --verbose",
     "start": "start-storybook -p 3000 -c .storybook",
     "docs": "build-storybook -c .storybook -o dist/docs",
     "docs:publish": "run-s docs && gh-pages -m \"[ci skip] Updates\" -d dist/docs",
-    "prepublishOnly": "run-s build test docs:publish",
-    "prepare": "( [ ! -f ./dist/lib/index.js ] && npm install . && npm run build ) || echo \"SKIP: NON GIT SOURCE\"",
-    "postpublish": "npm run clean"
+    "all": "run-s build test docs:publish",
+    "dist": "npm run all && cd dist/lib && npm publish"
   },
   "engines": {
     "node": ">=8.9"
   },
-  "dependencies": {},
+  "dependencies": {
+    "global": "^4.3.2"
+  },
   "peerDependencies": {
     "react": "^16.0.0",
+    "react-datasheet": "^1.3.8",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
-    "react-dom": "^16.0.1",
-    "react-datasheet": "^1.3.8"
+    "react-dom": "^16.0.1"
   },
   "devDependencies": {
     "@dump247/storybook-state": "^1.5.0",

@@ -49,7 +49,8 @@ $ npm install react-dnd react-dnd-html5-backend
 import React from 'react;
 import {DragDropContextProvider} from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import {DragDropRow, DragDropHeader, Sheet} from 'react-datasheet-ex';
+import {Sheet} from 'react-datasheet-ex';
+import {DragDropRow, DragDropHeader} from 'react-datasheet-ex/drag-drop';
 
 class DragDropRenderersSheet extends Component {
   

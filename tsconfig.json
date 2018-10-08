@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "outDir": "dist/main",
+    "outDir": "dist/lib",
     "rootDir": "src",
     "moduleResolution": "node",
     "module": "commonjs",
     "jsx": "react",
-    "declaration": false,
+    "declaration": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
@@ -32,6 +32,11 @@
     "typeRoots": ["node_modules/@types"]
   },
   "include": ["./src"],
-  "exclude": ["./node_modules/**", "./src/stories/**", "**/*.story.*"],
+  "exclude": [
+    "./node_modules/**",
+    "./src/stories/**/*",
+    "**/*.story.*",
+    "**/*.spec.*"
+  ],
   "compileOnSave": false
 }

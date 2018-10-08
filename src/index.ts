@@ -6,8 +6,6 @@ import Row from './Row';
 
 import * as ClassNames from './ClassNames';
 
-import * as dragDrop from './drag-drop';
-
 export {
   HeaderCell,
   HeaderContainer,
@@ -15,6 +13,4 @@ export {
   Row,
   Sheet,
   ClassNames,
-
-  dragDrop,
 };
