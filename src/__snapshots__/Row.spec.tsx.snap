@@ -14,9 +14,7 @@ exports[`Row basic rendering Should render 1`] = `
       }
       row={0}
     >
-      <tr
-        key="$row-0"
-      >
+      <tr>
         <td
           className="cell read-only rdx-action-cell"
           key="$$actionCell"

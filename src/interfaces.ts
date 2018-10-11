@@ -1,5 +1,6 @@
-import React, {CSSProperties, ReactNode} from 'react';
+import React, {CSSProperties} from 'react';
 import RDS from 'react-datasheet';
+
 
 export interface RowLocation {
   row: number;
@@ -21,11 +22,16 @@ export interface ColumnHeader {
   width?: number;
 }
 
-export interface HeaderRendererProps<T extends ColumnHeader = ColumnHeader> extends ColumnLocation {
-  header: T;
-  overflow?: Overflow;
+export interface Styleable {
   className?: string;
   style?: CSSProperties;
+}
+
+export interface HeaderRendererProps<T extends ColumnHeader = ColumnHeader>
+  extends ColumnLocation, Styleable {
+
+  header: T;
+  overflow?: Overflow;
 }
 
 export type HeaderRenderer<T extends ColumnHeader = ColumnHeader,

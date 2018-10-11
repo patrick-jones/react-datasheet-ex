@@ -5,7 +5,6 @@ import HeaderTitle from '../HeaderTitle';
 import {
   HEADER_DRAG_SOURCE,
   HEADER_DROP_TARGET,
-  HEADER_CELL_CONTAINER,
 } from '../ClassNames';
 
 import {InjectedDragDropProps, DragDropHeaderRendererProps} from './interfaces';

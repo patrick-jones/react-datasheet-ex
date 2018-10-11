@@ -40,7 +40,7 @@
   position: relative;
   text-overflow: ellipsis;
 
-  margin: 0 0.1em;
+  margin: 0 0.4rem;
   display: block;
   max-width: 100%;
 }
@@ -81,4 +81,34 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+}
+
+.data-grid-container > .data-grid.rdx-data-grid-resizable {
+  /* Use this one weird trick to make your table size properly */
+  width: 0;
+}
+
+.rdx-ex-resizing-width {
+  cursor: col-resize !important;
+}
+
+.rdx-width-resize-handle {
+  width: 2px;
+  cursor: col-resize;
+  position: absolute;
+  right: 0;
+  top: 1px;
+  bottom: 1px;
+  border-left: 2px solid #ddd;
+}
+
+.rds-ex-scroll-panel {
+  display: block;
+  border: 1px solid #ddd;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
 }

@@ -1,11 +1,11 @@
-import React, {Component, ReactNode} from 'react';
+import React, {PureComponent, ReactNode} from 'react';
 import {ColumnHeader, HeaderRendererProps} from './interfaces';
 import {READ_ONLY_CELL, HEADER_CELL} from './ClassNames';
 import headerDefaults from './headerDefaults';
 
 
 export default class HeaderCell<T extends ColumnHeader = ColumnHeader>
-  extends Component<HeaderRendererProps<T>> {
+  extends PureComponent<HeaderRendererProps<T>> {
 
   render(): ReactNode {
     const {

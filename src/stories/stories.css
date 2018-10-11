@@ -19,13 +19,6 @@ div.w100 > .data-grid-container > table.data-grid {
   width: 100%;
 }
 
-.vert-drag-handle {
-  cursor: col-resize;
-  width: 8px;
-  flex: none;
-  height: 100%;
-}
-
 .header-chip {
   display: flex;
   flex-direction: row;

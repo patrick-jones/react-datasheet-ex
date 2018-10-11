@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styleable HeaderContainer matches snapshot 1`] = `
+<span
+  className="rdx-header-cell-container foo-bar"
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+>
+  content
+</span>
+`;
+
+exports[`Styleable HeaderTitle matches snapshot 1`] = `
+<span
+  className="rdx-header-cell-title rdx-header-cell-title--clip foo-bar"
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+>
+  content
+</span>
+`;
+
+exports[`Styleable WidthResizeHandle matches snapshot 1`] = `
+<span
+  className="rdx-width-resize-handle foo-bar"
+  onMouseDown={[Function]}
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+>
+  content
+</span>
+`;

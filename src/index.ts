@@ -6,6 +6,8 @@ import Row from './Row';
 
 import * as ClassNames from './ClassNames';
 
+export * from './interfaces';
+
 export {
   HeaderCell,
   HeaderContainer,

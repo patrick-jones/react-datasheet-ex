@@ -31,6 +31,7 @@ Import as needed:
 ```js
 import {Sheet, Row} from 'react-datasheet-ex';
 import {DragDropHeader, DragDropRow} from 'react-datasheet-ex/drag-drop';
+import {WidthResizeHandle, ResizableHeaderContainer, ResizableHeader} from 'react-datasheet-ex/resize';
 
 // we need a few styles, too
 import 'react-datasheet-ex/react-datasheet-ex.css';

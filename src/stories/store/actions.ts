@@ -57,6 +57,8 @@ export enum ActionTypes {
   ROW_DROPPED = 'rds-ex__row-dropped',
   ROW_SELECTION_CHANGED = 'rds-ex__row-selection-changed',
   COLUMN_HIDDEN_CHANGED = 'rds-ex__column-hidden-changed',
+  HEADER_RESIZING = 'rds-ex__header-resizing',
+  HEADER_RESIZE_END = 'rds-ex__header-resize-end',
 }
 
 export const SheetActionCreators = {
@@ -75,6 +77,10 @@ export const SheetActionCreators = {
     createAction(ActionTypes.ROW_SELECTION_CHANGED, {row, selected}),
   columnHiddenChanged: (id: string, hidden: boolean) =>
     createAction(ActionTypes.COLUMN_HIDDEN_CHANGED, {id, hidden}),
+  headerResizing: (source: number, requestedSize: number) =>
+    createAction(ActionTypes.HEADER_RESIZING, {source, requestedSize}),
+  headerResizeEnd: (source: number, requestedSize: number) =>
+    createAction(ActionTypes.HEADER_RESIZE_END, {source, requestedSize}),
 };
 
 export type SheetActionCreators = typeof SheetActionCreators;
