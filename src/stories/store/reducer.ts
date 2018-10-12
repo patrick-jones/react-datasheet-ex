@@ -1,6 +1,6 @@
 import RDS from 'react-datasheet';
 import {ExampleCellValue, ExampleModel, ExampleRow} from './interfaces';
-import {Actions, ActionTypes, SheetActionCreators} from './actions';
+import {Action, Actions, ActionTypes, SheetActionCreators} from './actions';
 
 
 /**
@@ -29,6 +29,10 @@ export default function reducer(
       return handleRowSelectionChanged(state, action.payload.row, action.payload.selected);
     case ActionTypes.COLUMN_HIDDEN_CHANGED:
       return handleColumnHiddenChanged(state, action.payload.id, action.payload.hidden);
+    case ActionTypes.HEADER_RESIZING:
+      return handleHeaderResized(state, action.payload);
+    case ActionTypes.HEADER_RESIZE_END:
+      return handleHeaderResized(state, action.payload);
     default:
       return state;
   }
@@ -167,6 +171,31 @@ function handleColumnHiddenChanged(state: ExampleModel, id: string, hidden: bool
   headers[index] = {
     ...headers[index],
     hidden,
+  };
+
+  return {
+    headers,
+  };
+}
+
+function handleHeaderResized(
+  state: ExampleModel, payload: {source: number, requestedSize: number}) {
+
+  const {source, requestedSize} = payload;
+  const target = state.headers.filter(h => !h.hidden)[source];
+
+  const width = Math.max(17, requestedSize);
+
+  if (target.width === width) {
+    return state;
+  }
+
+  const realIndex = state.headers.findIndex(h => h === target);
+
+  const headers = [...state.headers];
+  headers[realIndex] = {
+    ...target,
+    width,
   };
 
   return {

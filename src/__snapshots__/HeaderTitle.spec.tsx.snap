@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`HeaderTitle matches snapshot 1`] = `
-<span
-  className="rdx-header-cell-title rdx-header-cell-title--clip"
->
-  AA
-</span>
-`;

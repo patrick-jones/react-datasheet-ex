@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResizableHeader Should render 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th>
+        <ResizableHeader
+          cellTag="TH"
+          col={0}
+          header={
+            Object {
+              "id": "A",
+              "title": "A",
+            }
+          }
+          index={0}
+          minSize={17}
+          onResizeEnd={[MockFunction]}
+        >
+          <ResizableHeaderContainer
+            cellTag="TH"
+            index={0}
+            minSize={17}
+            onResizeEnd={[MockFunction]}
+          >
+            <HeaderContainer
+              className=""
+            >
+              <span
+                className="rdx-header-cell-container"
+              >
+                <HeaderTitle
+                  className=""
+                  col={0}
+                  header={
+                    Object {
+                      "id": "A",
+                      "title": "A",
+                    }
+                  }
+                >
+                  <span
+                    className="rdx-header-cell-title rdx-header-cell-title--clip"
+                  >
+                    Custom
+                  </span>
+                </HeaderTitle>
+                <WidthResizeHandle
+                  cellTag="TH"
+                  index={0}
+                  minSize={17}
+                  onResizeEnd={[MockFunction]}
+                >
+                  <span
+                    className="rdx-width-resize-handle"
+                    onMouseDown={[Function]}
+                  />
+                </WidthResizeHandle>
+              </span>
+            </HeaderContainer>
+          </ResizableHeaderContainer>
+        </ResizableHeader>
+      </th>
+      <th>
+        <ResizableHeader
+          cellTag="TH"
+          col={0}
+          header={
+            Object {
+              "id": "B",
+              "title": "B",
+            }
+          }
+          index={0}
+          minSize={17}
+          onResizeEnd={[MockFunction]}
+        >
+          <ResizableHeaderContainer
+            cellTag="TH"
+            index={0}
+            minSize={17}
+            onResizeEnd={[MockFunction]}
+          >
+            <HeaderContainer
+              className=""
+            >
+              <span
+                className="rdx-header-cell-container"
+              >
+                <HeaderTitle
+                  className=""
+                  col={0}
+                  header={
+                    Object {
+                      "id": "B",
+                      "title": "B",
+                    }
+                  }
+                >
+                  <span
+                    className="rdx-header-cell-title rdx-header-cell-title--clip"
+                  >
+                    B
+                  </span>
+                </HeaderTitle>
+                <WidthResizeHandle
+                  cellTag="TH"
+                  index={0}
+                  minSize={17}
+                  onResizeEnd={[MockFunction]}
+                >
+                  <span
+                    className="rdx-width-resize-handle"
+                    onMouseDown={[Function]}
+                  />
+                </WidthResizeHandle>
+              </span>
+            </HeaderContainer>
+          </ResizableHeaderContainer>
+        </ResizableHeader>
+      </th>
+    </tr>
+  </thead>
+</table>
+`;

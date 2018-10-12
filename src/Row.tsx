@@ -1,4 +1,4 @@
-import React, {Component, ReactNode} from 'react';
+import React, {PureComponent, ReactNode} from 'react';
 import RDS from 'react-datasheet';
 
 import {READ_ONLY_CELL, ACTION_CELL} from './ClassNames';
@@ -12,7 +12,7 @@ const rowClass = `${READ_ONLY_CELL} ${ACTION_CELL}`;
 export default class Row<
   T extends RDS.Cell<T, V>, V = string,
   ARP extends ActionRendererProps<T, V> = ActionRendererProps<T, V>,
-> extends Component<RowRendererProps<T, V, ARP>> {
+> extends PureComponent<RowRendererProps<T, V, ARP>> {
 
   static displayName = 'RowRenderer';
 
@@ -23,7 +23,7 @@ export default class Row<
   render(): ReactNode {
     const {id, row, children, actionRenderer: ActionRenderer, ...rest} = this.props;
     return (
-      <tr key={`$row-${id || row}`}>
+      <tr>
         <td key='$$actionCell' className={rowClass}>
           <ActionRenderer id={id} row={row} {...rest} />
         </td>

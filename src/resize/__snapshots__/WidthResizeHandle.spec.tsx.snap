@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WidthResizeHandle Should render 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th>
+        <WidthResizeHandle
+          cellTag="TH"
+          index={0}
+          minSize={20}
+          onResizeEnd={[MockFunction]}
+          onResizeStart={[MockFunction]}
+          onResizing={[MockFunction]}
+        >
+          <span
+            className="rdx-width-resize-handle"
+            onMouseDown={[Function]}
+          />
+        </WidthResizeHandle>
+      </th>
+    </tr>
+  </thead>
+</table>
+`;

@@ -1,4 +1,4 @@
-import React, {Component, ReactNode} from 'react';
+import React, {PureComponent, ReactNode} from 'react';
 import RDS from 'react-datasheet';
 
 import {
@@ -22,7 +22,7 @@ const actionClassNames = `${READ_ONLY_CELL} ${ACTION_CELL}`;
  */
 export default class Sheet<
     T extends RDS.Cell<T, V>, V = string, H extends ColumnHeader = ColumnHeader
-  > extends Component<SheetRendererProps<T, V, H>> {
+  > extends PureComponent<SheetRendererProps<T, V, H>> {
 
   static readonly defaultProps = {
     headers: [],

@@ -15,3 +15,9 @@ export const HEADER_DROP_TARGET = 'rdx-header-drop-target';
 export const ROW = 'rdx-row';
 export const ROW_DROP_TARGET = 'rdx-row-drop-target';
 export const ROW_DRAG_SOURCE = 'rdx-row-drag-source';
+
+export const RESIZING_WIDTH = 'rdx-ex-resizing-width';
+export const DATA_GRID_RESIZABLE = 'rdx-data-grid-resizable';
+export const WIDTH_RESIZE_HANDLE = 'rdx-width-resize-handle';
+
+export const SCROLL_PANEL = 'rds-ex-scroll-panel';

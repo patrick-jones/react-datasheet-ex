@@ -15,7 +15,13 @@ describe('HeaderCell', () => {
 
   it('Renders text as expected', () => {
     const wrapper = mount(
-      <HeaderCell col={0} header={header}>{header.id}</HeaderCell>
+      <table>
+        <thead>
+          <tr>
+            <HeaderCell col={0} header={header}>{header.id}</HeaderCell>
+          </tr>
+        </thead>
+      </table>
     );
     expect(wrapper.find('th.rdx-header-cell').text()).toBe(header.id);
   });
@@ -37,27 +43,45 @@ describe('HeaderCell', () => {
 
   it('Should render with alignment options', () => {
     const center = mount(
-      <HeaderCell col={0} header={{...header, width: 100}}>
-        {header.id}
-      </HeaderCell>
+      <table>
+        <thead>
+          <tr>
+            <HeaderCell col={0} header={{...header, width: 100}}>
+              {header.id}
+            </HeaderCell>
+          </tr>
+        </thead>
+      </table>
     ).find(`th.${HEADER_CELL}.${HEADER_CELL_CENTER}`);
 
     expect(center.length).toBe(1);
 
     const left = mount(
-      <HeaderCell col={0} header={{...header, width: 100, align: 'left'}}>
-        {header.id}
-      </HeaderCell>
+      <table>
+        <thead>
+        <tr>
+          <HeaderCell col={0} header={{...header, width: 100, align: 'left'}}>
+            {header.id}
+          </HeaderCell>
+        </tr>
+        </thead>
+      </table>
     ).find(`th.${HEADER_CELL}.${HEADER_CELL_LEFT}`);
 
     expect(left.length).toBe(1);
 
     const right = mount(
-      <HeaderCell col={0} header={{ id: 'h1', title: 'h1', align: 'right' }}>
-        Content
-      </HeaderCell>
-    ).find(`th.${HEADER_CELL}.${HEADER_CELL_RIGHT}`);
-
+      <table>
+        <thead>
+        <tr>
+          <HeaderCell col={0} header={{...header, width: 100, align: 'right'}}>
+            {header.id}
+          </HeaderCell>
+        </tr>
+        </thead>
+      </table>
+    ).find(`th.${HEADER_CELL}.${HEADER_CELL_LEFT}`);
+    
     expect(left.length).toBe(1);
   });
 

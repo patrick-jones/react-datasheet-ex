@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollPanel Should render 1`] = `
+<span
+  className="rds-ex-scroll-panel"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+/>
+`;

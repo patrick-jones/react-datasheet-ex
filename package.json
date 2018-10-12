@@ -1,6 +1,6 @@
 {
   "name": "react-datasheet-ex",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Custom renderers for react-datasheet",
   "author": "Patrick Jones <pjnola@gmail.com>",
   "main": "dist/lib/index.js",
@@ -98,11 +98,10 @@
     ],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/test/",
-      "src/index.ts",
-      "src/setup-enzyme.ts",
-      "src/stories/"
+      "<rootDir>/node_modules/",
+      "index.ts",
+      "<rootDir>/src/setup-enzyme.ts",
+      "<rootDir>/src/stories/"
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,ts,tsx}"

@@ -1,9 +1,14 @@
-import React, {Component, CSSProperties, ReactNode} from 'react';
+import React, {PureComponent, ReactNode} from 'react';
 import {HEADER_CELL_CONTAINER} from './ClassNames';
+import {Styleable} from './interfaces';
 
 
+/**
+ * A component that lays out child elements from top to bottom.
+ * This helps keep header titles top-aligned.
+ */
 export default class HeaderContainer
-  extends Component<{className?: string, style?: CSSProperties}> {
+  extends PureComponent<Styleable> {
 
   static defaultProps = {
     className: '',
