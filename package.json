@@ -1,13 +1,18 @@
 {
   "name": "react-datasheet-ex",
-  "version": "0.1.2",
-  "description": "Custom renderers for react-datasheet",
+  "version": "1.0.0",
+  "description": "Extended renderers for react-datasheet",
   "author": "Patrick Jones <pjnola@gmail.com>",
   "main": "dist/lib/index.js",
   "typings": "dist/lib/index.d.ts",
   "repository": "https://github.com/patrick-jones/react-datasheet-ex.git",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "grid",
+    "table"
+  ],
   "scripts": {
     "clean": "rimraf dist",
     "lint": "tslint --project .",
