@@ -4,4 +4,5 @@ import HeaderTitle from './HeaderTitle';
 import Sheet from './Sheet';
 import Row from './Row';
 import * as ClassNames from './ClassNames';
+export * from './interfaces';
 export { HeaderCell, HeaderContainer, HeaderTitle, Row, Sheet, ClassNames, };

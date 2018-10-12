@@ -45,7 +45,9 @@ export declare enum ActionTypes {
     HEADER_DROPPED = "rds-ex__header-dropped",
     ROW_DROPPED = "rds-ex__row-dropped",
     ROW_SELECTION_CHANGED = "rds-ex__row-selection-changed",
-    COLUMN_HIDDEN_CHANGED = "rds-ex__column-hidden-changed"
+    COLUMN_HIDDEN_CHANGED = "rds-ex__column-hidden-changed",
+    HEADER_RESIZING = "rds-ex__header-resizing",
+    HEADER_RESIZE_END = "rds-ex__header-resize-end"
 }
 export declare const SheetActionCreators: {
     cellsChanged: (changes: {
@@ -111,6 +113,20 @@ export declare const SheetActionCreators: {
         payload: {
             id: string;
             hidden: boolean;
+        };
+    };
+    headerResizing: (source: number, requestedSize: number) => {
+        type: ActionTypes.HEADER_RESIZING;
+        payload: {
+            source: number;
+            requestedSize: number;
+        };
+    };
+    headerResizeEnd: (source: number, requestedSize: number) => {
+        type: ActionTypes.HEADER_RESIZE_END;
+        payload: {
+            source: number;
+            requestedSize: number;
         };
     };
 };

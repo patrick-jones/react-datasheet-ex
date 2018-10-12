@@ -5,7 +5,7 @@ interface HeaderTitleProps<T extends ColumnHeader = ColumnHeader> extends Header
 /**
  * A simple header content renderer that displays the header's `title` property.
  */
-export default class HeaderTitle<T extends ColumnHeader = ColumnHeader> extends React.Component<HeaderTitleProps<T>> {
+export default class HeaderTitle<T extends ColumnHeader = ColumnHeader> extends React.PureComponent<HeaderTitleProps<T>> {
     static defaultProps: {
         className: string;
     };

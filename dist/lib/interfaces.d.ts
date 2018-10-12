@@ -16,11 +16,13 @@ export interface ColumnHeader {
     overflow?: Overflow;
     width?: number;
 }
-export interface HeaderRendererProps<T extends ColumnHeader = ColumnHeader> extends ColumnLocation {
-    header: T;
-    overflow?: Overflow;
+export interface Styleable {
     className?: string;
     style?: CSSProperties;
+}
+export interface HeaderRendererProps<T extends ColumnHeader = ColumnHeader> extends ColumnLocation, Styleable {
+    header: T;
+    overflow?: Overflow;
 }
 export declare type HeaderRenderer<T extends ColumnHeader = ColumnHeader, R extends HeaderRendererProps<T> = HeaderRendererProps<T>> = React.ComponentType<R>;
 export interface SheetRendererProps<T extends RDS.Cell<T, V>, V = string, H extends ColumnHeader = ColumnHeader> extends RDS.SheetRendererProps<T, V> {
